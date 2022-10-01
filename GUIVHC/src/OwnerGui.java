@@ -1,6 +1,7 @@
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
+import java.awt.Color;
 
 public class OwnerGui {
 
@@ -34,7 +35,8 @@ public class OwnerGui {
 	 */
 	private void initialize() {
 		OwnerGui = new JFrame();
-		OwnerGui.setBounds(100, 100, 570, 460);
+		OwnerGui.getContentPane().setBackground(new Color(0, 191, 255));
+		OwnerGui.setBounds(100, 100, 720, 560);
 		OwnerGui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 

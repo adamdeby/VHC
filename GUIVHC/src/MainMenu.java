@@ -17,12 +17,14 @@ import java.util.GregorianCalendar;
 
 import javax.swing.Action;
 import java.awt.SystemColor;
+import javax.swing.JPanel;
 
 public class MainMenu {
 
 	private JFrame frame;
 	private final Action action = new SwingAction();
 	private JLabel Clock;
+	private final JPanel panel = new JPanel();
 
 	/**
 	 * Launch the application.
@@ -83,51 +85,76 @@ public class MainMenu {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.getContentPane().setBackground(SystemColor.inactiveCaption);
-		frame.setBounds(100, 100, 570, 460);
+		frame.getContentPane().setBackground(new Color(0, 191, 255));
+		frame.setBounds(100, 100, 720, 560);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 
 		JButton btnClient = new JButton("Client");
-		btnClient.setFont(new Font("Yu Gothic UI", Font.PLAIN, 11));
-		btnClient.setBounds(289, 244, 132, 50);
+		btnClient.setFont(new Font("Yu Gothic UI", Font.PLAIN, 15));
+		btnClient.setBounds(519, 267, 132, 50);
 		frame.getContentPane().add(btnClient);
 
 		JButton btnOwner = new JButton("Owner");
 		btnOwner.setAction(action);
-		btnOwner.setFont(new Font("Yu Gothic UI", Font.PLAIN, 11));
-		btnOwner.setBounds(289, 143, 132, 50);
+		btnOwner.setFont(new Font("Yu Gothic UI", Font.PLAIN, 15));
+		btnOwner.setBounds(519, 167, 132, 50);
 		frame.getContentPane().add(btnOwner);
 
 		JLabel ownerIcon = new JLabel("");
-		ownerIcon.setBounds(218, 143, 72, 50);
+		ownerIcon.setBounds(437, 167, 72, 50);
 		frame.getContentPane().add(ownerIcon);
 		ImageIcon owner = new ImageIcon(".//res//owner.png");
 		ownerIcon.setIcon(owner);
 
 		JLabel clientIcon = new JLabel("");
-		clientIcon.setBounds(218, 244, 72, 50);
+		clientIcon.setBounds(437, 267, 72, 50);
 		frame.getContentPane().add(clientIcon);
 		ImageIcon client = new ImageIcon(".//res//client.png");
 		clientIcon.setIcon(client);
 
 		JLabel centerLbl = new JLabel("Choose an Option:");
 		centerLbl.setBorder(new LineBorder(new Color(0, 0, 0)));
-		centerLbl.setFont(new Font("Yu Gothic UI", Font.BOLD, 29));
+		centerLbl.setFont(new Font("Yu Gothic UI", Font.BOLD, 24));
 		centerLbl.setHorizontalAlignment(SwingConstants.CENTER);
-		centerLbl.setBounds(110, 52, 325, 80);
+		centerLbl.setBounds(403, 33, 241, 80);
 		frame.getContentPane().add(centerLbl);
 
 		JButton RealTimeReport = new JButton("Real Time Report");
-		RealTimeReport.setFont(new Font("Yu Gothic UI", Font.PLAIN, 11));
-		RealTimeReport.setBounds(289, 338, 132, 50);
+		RealTimeReport.setFont(new Font("Yu Gothic UI", Font.PLAIN, 12));
+		RealTimeReport.setBounds(519, 368, 132, 50);
 		frame.getContentPane().add(RealTimeReport);
 
-		// CLOCK
-		Clock = new JLabel("New label");
-		Clock.setBounds(186, 11, 203, 32);
-		frame.getContentPane().add(Clock);
+		JLabel reportIcon = new JLabel("");
+		reportIcon.setBounds(437, 368, 72, 50);
+		frame.getContentPane().add(reportIcon);
+		ImageIcon report = new ImageIcon(".//res//report.png");
+		reportIcon.setIcon(report);
+		panel.setBounds(0, 0, 355, 521);
+		frame.getContentPane().add(panel);
+		panel.setLayout(null);
 
+		JLabel cloudIcon = new JLabel("");
+		cloudIcon.setBounds(-66, 11, 432, 261);
+		panel.add(cloudIcon);
+		ImageIcon cloud = new ImageIcon(".//res//cloud.png");
+		cloudIcon.setIcon(cloud);
+		
+		JLabel lblNewLabel = new JLabel("New label");
+		lblNewLabel.setBounds(348, 478, -320, -183);
+		panel.add(lblNewLabel);
+		
+		JLabel cloudCar = new JLabel("");
+		cloudCar.setBounds(21, 222, 368, 288);
+		panel.add(cloudCar);
+		ImageIcon cloudCarIcon = new ImageIcon(".//res//cloudCar.png");
+		cloudCar.setIcon(cloudCarIcon);
+		
+		
+		// CLOCK
+				Clock = new JLabel("clock");
+				Clock.setBounds(71, 478, 203, 32);
+				panel.add(Clock);
 	}
 
 	private class SwingAction extends AbstractAction {
