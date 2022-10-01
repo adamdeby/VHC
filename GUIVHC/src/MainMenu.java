@@ -75,5 +75,7 @@ public class MainMenu {
 		centerLbl.setHorizontalAlignment(SwingConstants.CENTER);
 		centerLbl.setBounds(110, 52, 325, 80);
 		frame.getContentPane().add(centerLbl);
+		
+		//TESTING
 	}
 }
