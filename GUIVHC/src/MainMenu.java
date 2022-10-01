@@ -77,5 +77,6 @@ public class MainMenu {
 		frame.getContentPane().add(centerLbl);
 		
 		//TESTING
+		//TESTING
 	}
 }
