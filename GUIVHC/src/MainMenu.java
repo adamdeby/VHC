@@ -25,6 +25,7 @@ public class MainMenu {
 	private final Action action = new SwingAction();
 	private JLabel Clock;
 	private final JPanel panel = new JPanel();
+	private final Action action_1 = new SwingAction_1();
 
 	/**
 	 * Launch the application.
@@ -91,6 +92,7 @@ public class MainMenu {
 		frame.getContentPane().setLayout(null);
 
 		JButton btnClient = new JButton("Client");
+		btnClient.setAction(action_1);
 		btnClient.setFont(new Font("Yu Gothic UI", Font.PLAIN, 15));
 		btnClient.setBounds(519, 267, 132, 50);
 		frame.getContentPane().add(btnClient);
@@ -170,5 +172,19 @@ public class MainMenu {
 			frame.dispose();
 		}
 
+	}
+	private class SwingAction_1 extends AbstractAction {
+		public SwingAction_1() {
+			putValue(NAME, "Client");
+			putValue(SHORT_DESCRIPTION, "Some short description");
+		}
+		public void actionPerformed(ActionEvent e) {
+			ClientGui openClientGui = new ClientGui();
+			openClientGui.ClientGui.setVisible(true);
+			frame.dispose();
+			
+			
+			
+		}
 	}
 }
