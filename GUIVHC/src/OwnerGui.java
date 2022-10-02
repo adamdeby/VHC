@@ -64,19 +64,19 @@ public class OwnerGui {
 		lblNewLabel.setBounds(199, 171, 94, 29);
 		OwnerGui.getContentPane().add(lblNewLabel);
 		
-		JLabel lblVeichleMake = new JLabel("Veichle Make: ");
+		JLabel lblVeichleMake = new JLabel("Vehicle Make: ");
 		lblVeichleMake.setFont(new Font("Yu Gothic", Font.BOLD, 18));
 		lblVeichleMake.setBounds(164, 211, 129, 29);
 		OwnerGui.getContentPane().add(lblVeichleMake);
 		
 		JLabel lblNewLabel_2 = new JLabel("Owner Year: ");
 		lblNewLabel_2.setFont(new Font("Yu Gothic", Font.BOLD, 18));
-		lblNewLabel_2.setBounds(179, 251, 114, 29);
+		lblNewLabel_2.setBounds(179, 291, 114, 29);
 		OwnerGui.getContentPane().add(lblNewLabel_2);
 		
-		JLabel lblVeichleMake_1 = new JLabel("Veichle Make: ");
+		JLabel lblVeichleMake_1 = new JLabel("Veichle Model:");
 		lblVeichleMake_1.setFont(new Font("Yu Gothic", Font.BOLD, 18));
-		lblVeichleMake_1.setBounds(164, 291, 129, 29);
+		lblVeichleMake_1.setBounds(161, 251, 140, 29);
 		OwnerGui.getContentPane().add(lblVeichleMake_1);
 		
 		JLabel lblVeichleMake_1_1 = new JLabel("Residency Time:");
