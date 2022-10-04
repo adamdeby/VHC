@@ -132,7 +132,7 @@ public class MainMenu {
 		Mainframe.getContentPane().add(reportIcon);
 		ImageIcon report = new ImageIcon(".//res//report.png");
 		reportIcon.setIcon(report);
-		panel.setBounds(0, 0, 466, 665);
+		panel.setBounds(0, 0, 466, 681);
 		Mainframe.getContentPane().add(panel);
 		panel.setLayout(null);
 

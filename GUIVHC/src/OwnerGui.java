@@ -68,7 +68,7 @@ public class OwnerGui {
 		OwnerGui.getContentPane().setLayout(null);
 
 		JLabel centerLbl = new JLabel("Owner Registration:");
-		centerLbl.setBounds(0, 0, 924, 60);
+		centerLbl.setBounds(0, 0, 944, 60);
 		centerLbl.setHorizontalAlignment(SwingConstants.CENTER);
 		centerLbl.setFont(new Font("Yu Gothic UI", Font.BOLD, 29));
 		centerLbl.setBorder(new LineBorder(new Color(0, 0, 0)));

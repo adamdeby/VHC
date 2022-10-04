@@ -109,7 +109,7 @@ public class ClientGui {
 		clientTitle.setBorder(new LineBorder(new Color(0, 0, 0)));
 		clientTitle.setHorizontalAlignment(SwingConstants.CENTER);
 		clientTitle.setFont(new Font("Yu Gothic UI", Font.BOLD, 29));
-		clientTitle.setBounds(0, 0, 924, 53);
+		clientTitle.setBounds(0, 0, 941, 53);
 		ClientGui.getContentPane().add(clientTitle);
 		ClientGui.setBounds(100, 100, 940, 704);
 		ClientGui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
