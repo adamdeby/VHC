@@ -9,15 +9,20 @@ import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+import javax.swing.AbstractAction;
+import java.awt.event.ActionEvent;
+import javax.swing.Action;
+import java.awt.event.ActionListener;
 
 public class OwnerGui {
 
 	 JFrame OwnerGui;
-	 private JTextField textField;
-	 private JTextField textField_1;
-	 private JTextField textField_2;
-	 private JTextField textField_3;
+	 private JTextField OwnerIdTextField;
+	 private JTextField VeichleMakeTextField;
+	 private JTextField VeichleModelTextField;
+	 private JTextField VeichleYearTextField;
 	 private JTextField textField_4;
+	 private final Action action = new SwingAction();
 
 	/**
 	 * Launch the application.
@@ -59,63 +64,84 @@ public class OwnerGui {
 		centerLbl.setBorder(new LineBorder(new Color(0, 0, 0)));
 		OwnerGui.getContentPane().add(centerLbl);
 		
-		JLabel lblNewLabel = new JLabel("Owner ID: ");
-		lblNewLabel.setFont(new Font("Yu Gothic", Font.BOLD, 18));
-		lblNewLabel.setBounds(199, 171, 94, 29);
-		OwnerGui.getContentPane().add(lblNewLabel);
+		JLabel OwnerIdLabel = new JLabel("Owner ID: ");
+		OwnerIdLabel.setFont(new Font("Yu Gothic", Font.BOLD, 18));
+		OwnerIdLabel.setBounds(199, 171, 94, 29);
+		OwnerGui.getContentPane().add(OwnerIdLabel);
 		
-		JLabel lblVeichleMake = new JLabel("Vehicle Make: ");
-		lblVeichleMake.setFont(new Font("Yu Gothic", Font.BOLD, 18));
-		lblVeichleMake.setBounds(164, 211, 129, 29);
-		OwnerGui.getContentPane().add(lblVeichleMake);
+		JLabel VeichleMakeLabel = new JLabel("Vehicle Make: ");
+		VeichleMakeLabel.setFont(new Font("Yu Gothic", Font.BOLD, 18));
+		VeichleMakeLabel.setBounds(164, 211, 129, 29);
+		OwnerGui.getContentPane().add(VeichleMakeLabel);
 		
-		JLabel lblNewLabel_2 = new JLabel("Owner Year: ");
-		lblNewLabel_2.setFont(new Font("Yu Gothic", Font.BOLD, 18));
-		lblNewLabel_2.setBounds(179, 291, 114, 29);
-		OwnerGui.getContentPane().add(lblNewLabel_2);
+		JLabel VeichleYearLabel = new JLabel("Veichle Year: ");
+		VeichleYearLabel.setFont(new Font("Yu Gothic", Font.BOLD, 18));
+		VeichleYearLabel.setBounds(171, 291, 121, 29);
+		OwnerGui.getContentPane().add(VeichleYearLabel);
 		
-		JLabel lblVeichleMake_1 = new JLabel("Veichle Model:");
-		lblVeichleMake_1.setFont(new Font("Yu Gothic", Font.BOLD, 18));
-		lblVeichleMake_1.setBounds(161, 251, 140, 29);
-		OwnerGui.getContentPane().add(lblVeichleMake_1);
+		JLabel VeichleModelLabel = new JLabel("Veichle Model:");
+		VeichleModelLabel.setFont(new Font("Yu Gothic", Font.BOLD, 18));
+		VeichleModelLabel.setBounds(161, 251, 140, 29);
+		OwnerGui.getContentPane().add(VeichleModelLabel);
 		
-		JLabel lblVeichleMake_1_1 = new JLabel("Residency Time:");
-		lblVeichleMake_1_1.setFont(new Font("Yu Gothic", Font.BOLD, 18));
-		lblVeichleMake_1_1.setBounds(141, 331, 152, 34);
-		OwnerGui.getContentPane().add(lblVeichleMake_1_1);
+		JLabel ResidencyTimeTextField = new JLabel("Residency Time:");
+		ResidencyTimeTextField.setFont(new Font("Yu Gothic", Font.BOLD, 18));
+		ResidencyTimeTextField.setBounds(141, 331, 152, 34);
+		OwnerGui.getContentPane().add(ResidencyTimeTextField);
 		
-		textField = new JTextField();
-		textField.setBounds(311, 173, 170, 20);
-		OwnerGui.getContentPane().add(textField);
-		textField.setColumns(10);
+		OwnerIdTextField = new JTextField();
+		OwnerIdTextField.setBounds(311, 173, 170, 20);
+		OwnerGui.getContentPane().add(OwnerIdTextField);
+		OwnerIdTextField.setColumns(10);
 		
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
-		textField_1.setBounds(311, 213, 170, 20);
-		OwnerGui.getContentPane().add(textField_1);
+		VeichleMakeTextField = new JTextField();
+		VeichleMakeTextField.setColumns(10);
+		VeichleMakeTextField.setBounds(311, 213, 170, 20);
+		OwnerGui.getContentPane().add(VeichleMakeTextField);
 		
-		textField_2 = new JTextField();
-		textField_2.setColumns(10);
-		textField_2.setBounds(311, 253, 170, 20);
-		OwnerGui.getContentPane().add(textField_2);
+		VeichleModelTextField = new JTextField();
+		VeichleModelTextField.setColumns(10);
+		VeichleModelTextField.setBounds(311, 253, 170, 20);
+		OwnerGui.getContentPane().add(VeichleModelTextField);
 		
-		textField_3 = new JTextField();
-		textField_3.setColumns(10);
-		textField_3.setBounds(311, 293, 170, 20);
-		OwnerGui.getContentPane().add(textField_3);
+		VeichleYearTextField = new JTextField();
+		VeichleYearTextField.setColumns(10);
+		VeichleYearTextField.setBounds(311, 293, 170, 20);
+		OwnerGui.getContentPane().add(VeichleYearTextField);
 		
 		textField_4 = new JTextField();
 		textField_4.setColumns(10);
 		textField_4.setBounds(311, 336, 170, 20);
 		OwnerGui.getContentPane().add(textField_4);
 		
-		JButton btnNewButton = new JButton("New button");
-		btnNewButton.setBounds(314, 389, 152, 51);
-		OwnerGui.getContentPane().add(btnNewButton);
+		JButton SubmitButton = new JButton("Submit");
+		SubmitButton.setBounds(321, 389, 152, 51);
+		OwnerGui.getContentPane().add(SubmitButton);
+		
+		JButton BackToMainButton = new JButton("Back");
+		BackToMainButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				MainMenu mf = new MainMenu();
+				mf.Mainframe.setVisible(true);
+				OwnerGui.setVisible(false);
+
+			}
+		});
+		BackToMainButton.setAction(action);
+		BackToMainButton.setBounds(141, 389, 152, 51);
+		OwnerGui.getContentPane().add(BackToMainButton);
 	}
 
 	public void setVisible(boolean b) {
 		// TODO Auto-generated method stub
 		
+	}
+	private class SwingAction extends AbstractAction {
+		public SwingAction() {
+			putValue(NAME, "SwingAction");
+			putValue(SHORT_DESCRIPTION, "Some short description");
+		}
+		public void actionPerformed(ActionEvent e) {
+		}
 	}
 }

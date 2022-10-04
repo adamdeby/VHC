@@ -21,7 +21,7 @@ import javax.swing.JPanel;
 
 public class MainMenu {
 
-	private JFrame frame;
+	 JFrame Mainframe;
 	private final Action action = new SwingAction();
 	private JLabel Clock;
 	private final JPanel panel = new JPanel();
@@ -35,7 +35,7 @@ public class MainMenu {
 			public void run() {
 				try {
 					MainMenu window = new MainMenu();
-					window.frame.setVisible(true);
+					window.Mainframe.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -85,33 +85,33 @@ public class MainMenu {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new JFrame();
-		frame.getContentPane().setBackground(new Color(0, 191, 255));
-		frame.setBounds(100, 100, 720, 560);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
+		Mainframe = new JFrame();
+		Mainframe.getContentPane().setBackground(new Color(0, 191, 255));
+		Mainframe.setBounds(100, 100, 720, 560);
+		Mainframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		Mainframe.getContentPane().setLayout(null);
 
 		JButton btnClient = new JButton("Client");
 		btnClient.setAction(action_1);
 		btnClient.setFont(new Font("Yu Gothic UI", Font.PLAIN, 15));
 		btnClient.setBounds(519, 267, 132, 50);
-		frame.getContentPane().add(btnClient);
+		Mainframe.getContentPane().add(btnClient);
 
 		JButton btnOwner = new JButton("Owner");
 		btnOwner.setAction(action);
 		btnOwner.setFont(new Font("Yu Gothic UI", Font.PLAIN, 15));
 		btnOwner.setBounds(519, 167, 132, 50);
-		frame.getContentPane().add(btnOwner);
+		Mainframe.getContentPane().add(btnOwner);
 
 		JLabel ownerIcon = new JLabel("");
 		ownerIcon.setBounds(437, 167, 72, 50);
-		frame.getContentPane().add(ownerIcon);
+		Mainframe.getContentPane().add(ownerIcon);
 		ImageIcon owner = new ImageIcon(".//res//owner.png");
 		ownerIcon.setIcon(owner);
 
 		JLabel clientIcon = new JLabel("");
 		clientIcon.setBounds(437, 267, 72, 50);
-		frame.getContentPane().add(clientIcon);
+		Mainframe.getContentPane().add(clientIcon);
 		ImageIcon client = new ImageIcon(".//res//client.png");
 		clientIcon.setIcon(client);
 
@@ -120,20 +120,20 @@ public class MainMenu {
 		centerLbl.setFont(new Font("Yu Gothic UI", Font.BOLD, 24));
 		centerLbl.setHorizontalAlignment(SwingConstants.CENTER);
 		centerLbl.setBounds(403, 33, 241, 80);
-		frame.getContentPane().add(centerLbl);
+		Mainframe.getContentPane().add(centerLbl);
 
 		JButton RealTimeReport = new JButton("Real Time Report");
 		RealTimeReport.setFont(new Font("Yu Gothic UI", Font.PLAIN, 12));
 		RealTimeReport.setBounds(519, 368, 132, 50);
-		frame.getContentPane().add(RealTimeReport);
+		Mainframe.getContentPane().add(RealTimeReport);
 
 		JLabel reportIcon = new JLabel("");
 		reportIcon.setBounds(437, 368, 72, 50);
-		frame.getContentPane().add(reportIcon);
+		Mainframe.getContentPane().add(reportIcon);
 		ImageIcon report = new ImageIcon(".//res//report.png");
 		reportIcon.setIcon(report);
 		panel.setBounds(0, 0, 355, 521);
-		frame.getContentPane().add(panel);
+		Mainframe.getContentPane().add(panel);
 		panel.setLayout(null);
 
 		JLabel cloudIcon = new JLabel("");
@@ -169,7 +169,7 @@ public class MainMenu {
 		public void actionPerformed(ActionEvent e) {
 			OwnerGui openOwnerGui = new OwnerGui();
 			openOwnerGui.OwnerGui.setVisible(true);
-			frame.dispose();
+			Mainframe.dispose();
 		}
 
 	}
@@ -181,9 +181,8 @@ public class MainMenu {
 		public void actionPerformed(ActionEvent e) {
 			ClientGui openClientGui = new ClientGui();
 			openClientGui.ClientGui.setVisible(true);
-			frame.dispose();
+			Mainframe.dispose();
 			
-			//test
 			
 			
 		}
