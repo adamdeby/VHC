@@ -131,7 +131,7 @@ public class ClientGui {
 			putValue(SHORT_DESCRIPTION, "submit button");
 		}
 		public void actionPerformed(ActionEvent e) {
-			String input ="client: ID:"+ clientIDBox.getText()+" Duration:"+jobDurBox.getText()+ " Deadline:"+ dealineBox.getText();
+			String input ="Client: ID:"+ clientIDBox.getText()+" Duration:"+jobDurBox.getText()+ " Deadline:"+ dealineBox.getText();
 			try {
 				FileWriter Writer = new FileWriter("data.txt",true);
 				Writer.write(input+"\n");

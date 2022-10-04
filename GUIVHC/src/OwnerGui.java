@@ -3,6 +3,8 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import java.awt.Color;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.BorderLayout;
 import javax.swing.border.LineBorder;
 import java.awt.Font;
@@ -13,6 +15,7 @@ import javax.swing.AbstractAction;
 import java.awt.event.ActionEvent;
 import javax.swing.Action;
 import java.awt.event.ActionListener;
+import java.io.FileWriter;
 
 public class OwnerGui {
 
@@ -21,8 +24,9 @@ public class OwnerGui {
 	 private JTextField VeichleMakeTextField;
 	 private JTextField VeichleModelTextField;
 	 private JTextField VeichleYearTextField;
-	 private JTextField textField_4;
+	 private JTextField resTimeLabel;
 	 private final Action action = new SwingAction();
+	 private final Action action_1 = new SwingAction_1();
 
 	/**
 	 * Launch the application.
@@ -109,12 +113,13 @@ public class OwnerGui {
 		VeichleYearTextField.setBounds(311, 293, 170, 20);
 		OwnerGui.getContentPane().add(VeichleYearTextField);
 		
-		textField_4 = new JTextField();
-		textField_4.setColumns(10);
-		textField_4.setBounds(311, 336, 170, 20);
-		OwnerGui.getContentPane().add(textField_4);
+		resTimeLabel = new JTextField();
+		resTimeLabel.setColumns(10);
+		resTimeLabel.setBounds(311, 336, 170, 20);
+		OwnerGui.getContentPane().add(resTimeLabel);
 		
 		JButton SubmitButton = new JButton("Submit");
+		SubmitButton.setAction(action_1);
 		SubmitButton.setBounds(321, 389, 152, 51);
 		OwnerGui.getContentPane().add(SubmitButton);
 		
@@ -138,10 +143,30 @@ public class OwnerGui {
 	}
 	private class SwingAction extends AbstractAction {
 		public SwingAction() {
-			putValue(NAME, "SwingAction");
-			putValue(SHORT_DESCRIPTION, "Some short description");
+			putValue(NAME, "Back");
+			putValue(SHORT_DESCRIPTION, "Back button");
 		}
 		public void actionPerformed(ActionEvent e) {
+		}
+	}
+	private class SwingAction_1 extends AbstractAction {
+		public SwingAction_1() {
+			putValue(NAME, "Submit");
+			putValue(SHORT_DESCRIPTION, "Submit Button");
+		}
+		public void actionPerformed(ActionEvent e) {
+			String input ="Owner: ID:"+ OwnerIdTextField.getText()+" Make:"+VeichleMakeTextField.getText()+ " Model:"+ VeichleModelTextField.getText()+" Year:"+ VeichleYearTextField.getText() +" Residency Time:" + resTimeLabel.getText();                   
+			try {
+				FileWriter Writer = new FileWriter("data.txt",true);
+				Writer.write(input+"\n");
+				Writer.close();
+				JOptionPane.showMessageDialog(null, "Success, written to file");
+				
+				
+			}
+			catch(Exception a){
+				JOptionPane.showMessageDialog(null, "Error :(");
+			}
 		}
 	}
 }
