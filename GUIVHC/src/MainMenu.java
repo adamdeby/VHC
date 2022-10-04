@@ -87,30 +87,30 @@ public class MainMenu {
 	private void initialize() {
 		Mainframe = new JFrame();
 		Mainframe.getContentPane().setBackground(new Color(0, 191, 255));
-		Mainframe.setBounds(100, 100, 720, 560);
+		Mainframe.setBounds(100, 100, 940, 704);
 		Mainframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		Mainframe.getContentPane().setLayout(null);
 
 		JButton btnClient = new JButton("Client");
 		btnClient.setAction(action_1);
 		btnClient.setFont(new Font("Yu Gothic UI", Font.PLAIN, 15));
-		btnClient.setBounds(519, 267, 132, 50);
+		btnClient.setBounds(723, 293, 132, 50);
 		Mainframe.getContentPane().add(btnClient);
 
 		JButton btnOwner = new JButton("Owner");
 		btnOwner.setAction(action);
 		btnOwner.setFont(new Font("Yu Gothic UI", Font.PLAIN, 15));
-		btnOwner.setBounds(519, 167, 132, 50);
+		btnOwner.setBounds(723, 167, 132, 50);
 		Mainframe.getContentPane().add(btnOwner);
 
 		JLabel ownerIcon = new JLabel("");
-		ownerIcon.setBounds(437, 167, 72, 50);
+		ownerIcon.setBounds(614, 167, 72, 50);
 		Mainframe.getContentPane().add(ownerIcon);
 		ImageIcon owner = new ImageIcon(".//res//owner.png");
 		ownerIcon.setIcon(owner);
 
 		JLabel clientIcon = new JLabel("");
-		clientIcon.setBounds(437, 267, 72, 50);
+		clientIcon.setBounds(614, 293, 72, 50);
 		Mainframe.getContentPane().add(clientIcon);
 		ImageIcon client = new ImageIcon(".//res//client.png");
 		clientIcon.setIcon(client);
@@ -119,25 +119,25 @@ public class MainMenu {
 		centerLbl.setBorder(new LineBorder(new Color(0, 0, 0)));
 		centerLbl.setFont(new Font("Yu Gothic UI", Font.BOLD, 24));
 		centerLbl.setHorizontalAlignment(SwingConstants.CENTER);
-		centerLbl.setBounds(403, 33, 241, 80);
+		centerLbl.setBounds(589, 32, 241, 80);
 		Mainframe.getContentPane().add(centerLbl);
 
 		JButton RealTimeReport = new JButton("Real Time Report");
 		RealTimeReport.setFont(new Font("Yu Gothic UI", Font.PLAIN, 12));
-		RealTimeReport.setBounds(519, 368, 132, 50);
+		RealTimeReport.setBounds(723, 409, 132, 50);
 		Mainframe.getContentPane().add(RealTimeReport);
 
 		JLabel reportIcon = new JLabel("");
-		reportIcon.setBounds(437, 368, 72, 50);
+		reportIcon.setBounds(614, 409, 72, 50);
 		Mainframe.getContentPane().add(reportIcon);
 		ImageIcon report = new ImageIcon(".//res//report.png");
 		reportIcon.setIcon(report);
-		panel.setBounds(0, 0, 355, 521);
+		panel.setBounds(0, 0, 466, 665);
 		Mainframe.getContentPane().add(panel);
 		panel.setLayout(null);
 
 		JLabel cloudIcon = new JLabel("");
-		cloudIcon.setBounds(-66, 11, 432, 261);
+		cloudIcon.setBounds(10, 23, 408, 261);
 		panel.add(cloudIcon);
 		ImageIcon cloud = new ImageIcon(".//res//cloud.png");
 		cloudIcon.setIcon(cloud);
@@ -147,7 +147,7 @@ public class MainMenu {
 		panel.add(lblNewLabel);
 		
 		JLabel cloudCar = new JLabel("");
-		cloudCar.setBounds(21, 222, 368, 288);
+		cloudCar.setBounds(90, 266, 350, 288);
 		panel.add(cloudCar);
 		ImageIcon cloudCarIcon = new ImageIcon(".//res//cloudCar.png");
 		cloudCar.setIcon(cloudCarIcon);
@@ -155,7 +155,8 @@ public class MainMenu {
 		
 		// CLOCK
 				Clock = new JLabel("clock");
-				Clock.setBounds(71, 478, 203, 32);
+				Clock.setHorizontalAlignment(SwingConstants.CENTER);
+				Clock.setBounds(72, 608, 350, 32);
 				panel.add(Clock);
 	}
 

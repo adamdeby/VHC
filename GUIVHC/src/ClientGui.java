@@ -67,51 +67,51 @@ public class ClientGui {
 			}
 		});
 		//
-		BackToMain.setBounds(150, 366, 127, 40);
+		BackToMain.setBounds(258, 323, 150, 53);
 		ClientGui.getContentPane().add(BackToMain);
 		
 		JLabel clientIDtxt = new JLabel("Client ID:");
 		clientIDtxt.setFont(new Font("Yu Gothic", Font.BOLD, 18));
-		clientIDtxt.setBounds(195, 136, 96, 40);
+		clientIDtxt.setBounds(268, 136, 225, 40);
 		ClientGui.getContentPane().add(clientIDtxt);
 		
 		JLabel jobDurTxt = new JLabel("Job Duration:");
 		jobDurTxt.setFont(new Font("Yu Gothic", Font.BOLD, 18));
-		jobDurTxt.setBounds(168, 179, 118, 40);
+		jobDurTxt.setBounds(268, 179, 225, 40);
 		ClientGui.getContentPane().add(jobDurTxt);
 		
 		JLabel jobDeadlineTxt = new JLabel("Job Deadline:");
 		jobDeadlineTxt.setFont(new Font("Yu Gothic UI", Font.BOLD, 18));
-		jobDeadlineTxt.setBounds(168, 218, 118, 40);
+		jobDeadlineTxt.setBounds(268, 218, 225, 40);
 		ClientGui.getContentPane().add(jobDeadlineTxt);
 		
 		clientIDBox = new JTextField();
-		clientIDBox.setBounds(296, 144, 150, 20);
+		clientIDBox.setBounds(503, 144, 150, 20);
 		ClientGui.getContentPane().add(clientIDBox);
 		clientIDBox.setColumns(10);
 		
 		jobDurBox = new JTextField();
 		jobDurBox.setColumns(10);
-		jobDurBox.setBounds(296, 187, 150, 20);
+		jobDurBox.setBounds(503, 187, 150, 20);
 		ClientGui.getContentPane().add(jobDurBox);
 		
 		dealineBox = new JTextField();
 		dealineBox.setColumns(10);
-		dealineBox.setBounds(296, 229, 150, 23);
+		dealineBox.setBounds(503, 231, 150, 23);
 		ClientGui.getContentPane().add(dealineBox);
 		
 		JButton submitClientButton = new JButton("Submit");
 		submitClientButton.setAction(action_1);
-		submitClientButton.setBounds(385, 366, 150, 40);
+		submitClientButton.setBounds(488, 323, 165, 53);
 		ClientGui.getContentPane().add(submitClientButton);
 		
 		JLabel clientTitle = new JLabel("Client Registration:");
 		clientTitle.setBorder(new LineBorder(new Color(0, 0, 0)));
 		clientTitle.setHorizontalAlignment(SwingConstants.CENTER);
 		clientTitle.setFont(new Font("Yu Gothic UI", Font.BOLD, 29));
-		clientTitle.setBounds(0, 0, 704, 53);
+		clientTitle.setBounds(0, 0, 924, 53);
 		ClientGui.getContentPane().add(clientTitle);
-		ClientGui.setBounds(100, 100, 720, 560);
+		ClientGui.setBounds(100, 100, 940, 704);
 		ClientGui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 	
