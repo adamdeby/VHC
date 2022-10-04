@@ -38,7 +38,7 @@ public class OwnerGui {
 				}
 			}
 		});
-	}
+	}//
 
 	/**
 	 * Create the application.
