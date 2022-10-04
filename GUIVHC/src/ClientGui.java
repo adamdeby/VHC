@@ -14,6 +14,8 @@ import javax.swing.JOptionPane;
 
 import java.awt.Font;
 import javax.swing.JTextField;
+import javax.swing.SwingConstants;
+import javax.swing.border.LineBorder;
 
 public class ClientGui {
 
@@ -21,7 +23,7 @@ public class ClientGui {
 	 private final Action action = new SwingAction();
 	 private JTextField clientIDBox;
 	 private JTextField jobDurBox;
-	 private JTextField textField_1;
+	 private JTextField dealineBox;
 	 private final Action action_1 = new SwingAction_1(); //submit button needs to be copied
 
 	/**
@@ -65,43 +67,50 @@ public class ClientGui {
 			}
 		});
 		//
-		BackToMain.setBounds(109, 383, 89, 23);
+		BackToMain.setBounds(150, 366, 127, 40);
 		ClientGui.getContentPane().add(BackToMain);
 		
 		JLabel clientIDtxt = new JLabel("Client ID:");
-		clientIDtxt.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		clientIDtxt.setBounds(106, 116, 118, 40);
+		clientIDtxt.setFont(new Font("Yu Gothic", Font.BOLD, 18));
+		clientIDtxt.setBounds(195, 136, 96, 40);
 		ClientGui.getContentPane().add(clientIDtxt);
 		
 		JLabel jobDurTxt = new JLabel("Job Duration:");
-		jobDurTxt.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		jobDurTxt.setBounds(106, 167, 118, 40);
+		jobDurTxt.setFont(new Font("Yu Gothic", Font.BOLD, 18));
+		jobDurTxt.setBounds(168, 179, 118, 40);
 		ClientGui.getContentPane().add(jobDurTxt);
 		
 		JLabel jobDeadlineTxt = new JLabel("Job Deadline:");
-		jobDeadlineTxt.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		jobDeadlineTxt.setBounds(106, 218, 118, 40);
+		jobDeadlineTxt.setFont(new Font("Yu Gothic UI", Font.BOLD, 18));
+		jobDeadlineTxt.setBounds(168, 218, 118, 40);
 		ClientGui.getContentPane().add(jobDeadlineTxt);
 		
 		clientIDBox = new JTextField();
-		clientIDBox.setBounds(261, 128, 86, 20);
+		clientIDBox.setBounds(296, 144, 150, 20);
 		ClientGui.getContentPane().add(clientIDBox);
 		clientIDBox.setColumns(10);
 		
 		jobDurBox = new JTextField();
 		jobDurBox.setColumns(10);
-		jobDurBox.setBounds(261, 179, 86, 20);
+		jobDurBox.setBounds(296, 187, 150, 20);
 		ClientGui.getContentPane().add(jobDurBox);
 		
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
-		textField_1.setBounds(261, 230, 86, 20);
-		ClientGui.getContentPane().add(textField_1);
+		dealineBox = new JTextField();
+		dealineBox.setColumns(10);
+		dealineBox.setBounds(296, 229, 150, 23);
+		ClientGui.getContentPane().add(dealineBox);
 		
 		JButton submitClientButton = new JButton("Submit");
 		submitClientButton.setAction(action_1);
-		submitClientButton.setBounds(261, 383, 89, 23);
+		submitClientButton.setBounds(385, 366, 150, 40);
 		ClientGui.getContentPane().add(submitClientButton);
+		
+		JLabel clientTitle = new JLabel("Client Registration:");
+		clientTitle.setBorder(new LineBorder(new Color(0, 0, 0)));
+		clientTitle.setHorizontalAlignment(SwingConstants.CENTER);
+		clientTitle.setFont(new Font("Yu Gothic UI", Font.BOLD, 29));
+		clientTitle.setBounds(0, 0, 704, 53);
+		ClientGui.getContentPane().add(clientTitle);
 		ClientGui.setBounds(100, 100, 720, 560);
 		ClientGui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
@@ -122,7 +131,7 @@ public class ClientGui {
 			putValue(SHORT_DESCRIPTION, "submit button");
 		}
 		public void actionPerformed(ActionEvent e) {
-			String input = clientIDBox.getText()+" "+jobDurBox.getText()+ " "+ textField_1.getText();
+			String input ="client: ID:"+ clientIDBox.getText()+" Duration:"+jobDurBox.getText()+ " Deadline:"+ dealineBox.getText();
 			try {
 				FileWriter Writer = new FileWriter("data.txt",true);
 				Writer.write(input+"\n");
