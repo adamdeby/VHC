@@ -183,6 +183,7 @@ public class MainMenu {
 			openClientGui.ClientGui.setVisible(true);
 			frame.dispose();
 			
+			//test
 			
 			
 		}
