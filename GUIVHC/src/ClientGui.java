@@ -64,7 +64,7 @@ public class ClientGui {
 				ClientGui.setVisible(false);
 			}
 		});
-		
+		//
 		BackToMain.setBounds(109, 383, 89, 23);
 		ClientGui.getContentPane().add(BackToMain);
 		
