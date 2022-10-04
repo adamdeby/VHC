@@ -16,6 +16,12 @@ import java.awt.event.ActionEvent;
 import javax.swing.Action;
 import java.awt.event.ActionListener;
 import java.io.FileWriter;
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
+import java.time.Instant;
+import java.time.ZonedDateTime;
+import java.util.Date;
+import java.util.TimeZone;
 
 public class OwnerGui {
 
@@ -155,7 +161,10 @@ public class OwnerGui {
 			putValue(SHORT_DESCRIPTION, "Submit Button");
 		}
 		public void actionPerformed(ActionEvent e) {
-			String input ="Owner: ID:"+ OwnerIdTextField.getText()+" Make:"+VeichleMakeTextField.getText()+ " Model:"+ VeichleModelTextField.getText()+" Year:"+ VeichleYearTextField.getText() +" Residency Time:" + resTimeLabel.getText();                   
+			String timeStamp = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss ").format(new java.util.Date());
+			
+			
+			String input ="Time: "+timeStamp+ "Owner: ID:"+ OwnerIdTextField.getText()+" Make:"+VeichleMakeTextField.getText()+ " Model:"+ VeichleModelTextField.getText()+" Year:"+ VeichleYearTextField.getText() +" Residency Time:" + resTimeLabel.getText();                   
 			try {
 				FileWriter Writer = new FileWriter("data.txt",true);
 				Writer.write(input+"\n");
