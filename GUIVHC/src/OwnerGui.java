@@ -25,14 +25,14 @@ import java.util.TimeZone;
 
 public class OwnerGui {
 
-	 JFrame OwnerGui;
-	 private JTextField OwnerIdTextField;
-	 private JTextField VeichleMakeTextField;
-	 private JTextField VeichleModelTextField;
-	 private JTextField VeichleYearTextField;
-	 private JTextField resTimeLabel;
-	 private final Action action = new SwingAction();
-	 private final Action action_1 = new SwingAction_1();
+	JFrame OwnerGui;
+	private JTextField OwnerIdTextField;
+	private JTextField VeichleMakeTextField;
+	private JTextField VeichleModelTextField;
+	private JTextField VeichleYearTextField;
+	private JTextField resTimeLabel;
+	private final Action action = new SwingAction();
+	private final Action action_1 = new SwingAction_1();
 
 	/**
 	 * Launch the application.
@@ -73,62 +73,62 @@ public class OwnerGui {
 		centerLbl.setFont(new Font("Yu Gothic UI", Font.BOLD, 29));
 		centerLbl.setBorder(new LineBorder(new Color(0, 0, 0)));
 		OwnerGui.getContentPane().add(centerLbl);
-		
+
 		JLabel OwnerIdLabel = new JLabel("Owner ID: ");
 		OwnerIdLabel.setFont(new Font("Yu Gothic", Font.BOLD, 18));
 		OwnerIdLabel.setBounds(251, 171, 243, 29);
 		OwnerGui.getContentPane().add(OwnerIdLabel);
-		
+
 		JLabel VeichleMakeLabel = new JLabel("Vehicle Make: ");
 		VeichleMakeLabel.setFont(new Font("Yu Gothic", Font.BOLD, 18));
 		VeichleMakeLabel.setBounds(251, 211, 243, 29);
 		OwnerGui.getContentPane().add(VeichleMakeLabel);
-		
+
 		JLabel VeichleYearLabel = new JLabel("Veichle Year: ");
 		VeichleYearLabel.setFont(new Font("Yu Gothic", Font.BOLD, 18));
 		VeichleYearLabel.setBounds(251, 291, 243, 29);
 		OwnerGui.getContentPane().add(VeichleYearLabel);
-		
+
 		JLabel VeichleModelLabel = new JLabel("Veichle Model:");
 		VeichleModelLabel.setFont(new Font("Yu Gothic", Font.BOLD, 18));
 		VeichleModelLabel.setBounds(251, 251, 243, 29);
 		OwnerGui.getContentPane().add(VeichleModelLabel);
-		
+
 		JLabel ResidencyTimeTextField = new JLabel("Residency Time:");
 		ResidencyTimeTextField.setFont(new Font("Yu Gothic", Font.BOLD, 18));
 		ResidencyTimeTextField.setBounds(251, 331, 243, 34);
 		OwnerGui.getContentPane().add(ResidencyTimeTextField);
-		
+
 		OwnerIdTextField = new JTextField();
 		OwnerIdTextField.setBounds(499, 173, 170, 20);
 		OwnerGui.getContentPane().add(OwnerIdTextField);
 		OwnerIdTextField.setColumns(10);
-		
+
 		VeichleMakeTextField = new JTextField();
 		VeichleMakeTextField.setColumns(10);
 		VeichleMakeTextField.setBounds(499, 213, 170, 20);
 		OwnerGui.getContentPane().add(VeichleMakeTextField);
-		
+
 		VeichleModelTextField = new JTextField();
 		VeichleModelTextField.setColumns(10);
 		VeichleModelTextField.setBounds(499, 253, 170, 20);
 		OwnerGui.getContentPane().add(VeichleModelTextField);
-		
+
 		VeichleYearTextField = new JTextField();
 		VeichleYearTextField.setColumns(10);
 		VeichleYearTextField.setBounds(499, 293, 170, 20);
 		OwnerGui.getContentPane().add(VeichleYearTextField);
-		
+
 		resTimeLabel = new JTextField();
 		resTimeLabel.setColumns(10);
 		resTimeLabel.setBounds(499, 336, 170, 20);
 		OwnerGui.getContentPane().add(resTimeLabel);
-		
+
 		JButton SubmitButton = new JButton("Submit");
 		SubmitButton.setAction(action_1);
 		SubmitButton.setBounds(474, 406, 170, 60);
 		OwnerGui.getContentPane().add(SubmitButton);
-		
+
 		JButton BackToMainButton = new JButton("Back");
 		BackToMainButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -145,51 +145,55 @@ public class OwnerGui {
 
 	public void setVisible(boolean b) {
 		// TODO Auto-generated method stub
-		
+
 	}
+
 	private class SwingAction extends AbstractAction {
 		public SwingAction() {
 			putValue(NAME, "Back");
 			putValue(SHORT_DESCRIPTION, "Back button");
 		}
+
 		public void actionPerformed(ActionEvent e) {
 		}
 	}
+
 	private class SwingAction_1 extends AbstractAction {
 		public SwingAction_1() {
 			putValue(NAME, "Submit");
 			putValue(SHORT_DESCRIPTION, "Submit Button");
 		}
-		
+
 		public void actionPerformed(ActionEvent e) {
-			
-	        if (OwnerIdTextField.getText().trim().isEmpty() || VeichleMakeTextField.getText().trim().isEmpty()|| VeichleModelTextField.getText().trim().isEmpty()|| VeichleYearTextField.getText().trim().isEmpty()|| resTimeLabel.getText().trim().isEmpty()) {
-	       
+
+			if (OwnerIdTextField.getText().trim().isEmpty() || VeichleMakeTextField.getText().trim().isEmpty()
+					|| VeichleModelTextField.getText().trim().isEmpty()
+					|| VeichleYearTextField.getText().trim().isEmpty() || resTimeLabel.getText().trim().isEmpty()) {
+
 				JOptionPane.showMessageDialog(null, "Error. Please enter all the info");
-	        }
-	        
-	        	
-	        
-	        else {
-			try {
-				
-				String timeStamp = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss ").format(new java.util.Date());
-				String input ="Time: "+timeStamp+ "Owner: ID:"+ OwnerIdTextField.getText()+" Make:"+VeichleMakeTextField.getText()+ " Model:"+ VeichleModelTextField.getText()+" Year:"+ VeichleYearTextField.getText() +" Residency Time:" + resTimeLabel.getText();                   
-				
-				FileWriter Writer = new FileWriter("data.txt",true);
-				Writer.write(input+"\n");
-				Writer.close();
-				JOptionPane.showMessageDialog(null, "Success, written to file");
-				OwnerIdTextField.setText("");
-				VeichleMakeTextField.setText("");
-				VeichleModelTextField.setText("");
-				VeichleYearTextField.setText("");
-				resTimeLabel.setText("");	
 			}
-			catch(Exception a){
-				JOptionPane.showMessageDialog(null, "Error :(");
+
+			else {
+				try {
+
+					String timeStamp = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss ").format(new java.util.Date());
+					String input = "Time: " + timeStamp + "Owner: ID:" + OwnerIdTextField.getText() + " Make:"
+							+ VeichleMakeTextField.getText() + " Model:" + VeichleModelTextField.getText() + " Year:"
+							+ VeichleYearTextField.getText() + " Residency Time:" + resTimeLabel.getText();
+
+					FileWriter Writer = new FileWriter("data.txt", true);
+					Writer.write(input + "\n");
+					Writer.close();
+					JOptionPane.showMessageDialog(null, "Success, written to file");
+					OwnerIdTextField.setText("");
+					VeichleMakeTextField.setText("");
+					VeichleModelTextField.setText("");
+					VeichleYearTextField.setText("");
+					resTimeLabel.setText("");
+				} catch (Exception a) {
+					JOptionPane.showMessageDialog(null, "Error :(");
+				}
 			}
 		}
 	}
-}
 }

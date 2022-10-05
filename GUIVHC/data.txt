@@ -1,1 +1,3 @@
 Time: 10/04/2022 22:01:16 Owner: ID:a Make:a Model:a Year:a Residency Time:a
+Timestamp10/04/2022 22:07:46 Client: ID:1 Duration:2 Deadline:2
+Time10/04/2022 22:08:14 Client: ID:12 Duration:123 Deadline:123

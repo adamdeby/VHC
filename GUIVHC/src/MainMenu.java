@@ -21,7 +21,7 @@ import javax.swing.JPanel;
 
 public class MainMenu {
 
-	 JFrame Mainframe;
+	JFrame Mainframe;
 	private final Action action = new SwingAction();
 	private JLabel Clock;
 	private final JPanel panel = new JPanel();
@@ -142,23 +142,22 @@ public class MainMenu {
 		panel.add(cloudIcon);
 		ImageIcon cloud = new ImageIcon(".//res//cloud.png");
 		cloudIcon.setIcon(cloud);
-		
+
 		JLabel lblNewLabel = new JLabel("New label");
 		lblNewLabel.setBounds(348, 478, -320, -183);
 		panel.add(lblNewLabel);
-		
+
 		JLabel cloudCar = new JLabel("");
 		cloudCar.setBounds(90, 266, 350, 288);
 		panel.add(cloudCar);
 		ImageIcon cloudCarIcon = new ImageIcon(".//res//cloudCar.png");
 		cloudCar.setIcon(cloudCarIcon);
-		
-		
+
 		// CLOCK
-				Clock = new JLabel("clock");
-				Clock.setHorizontalAlignment(SwingConstants.CENTER);
-				Clock.setBounds(72, 608, 350, 32);
-				panel.add(Clock);
+		Clock = new JLabel("clock");
+		Clock.setHorizontalAlignment(SwingConstants.CENTER);
+		Clock.setBounds(72, 608, 350, 32);
+		panel.add(Clock);
 	}
 
 	private class SwingAction extends AbstractAction {
@@ -175,18 +174,18 @@ public class MainMenu {
 		}
 
 	}
+
 	private class SwingAction_1 extends AbstractAction {
 		public SwingAction_1() {
 			putValue(NAME, "Client");
 			putValue(SHORT_DESCRIPTION, "Some short description");
 		}
+
 		public void actionPerformed(ActionEvent e) {
 			ClientGui openClientGui = new ClientGui();
 			openClientGui.ClientGui.setVisible(true);
 			Mainframe.dispose();
-			
-			
-			
+
 		}
 	}
 }
