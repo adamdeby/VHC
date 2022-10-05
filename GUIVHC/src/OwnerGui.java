@@ -65,7 +65,6 @@ public class OwnerGui {
 		OwnerGui.setBounds(100, 100, 940, 704);
 		OwnerGui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		OwnerGui.getContentPane().setBackground(new Color(0, 191, 255));
-		OwnerGui.setResizable(false);
 		OwnerGui.getContentPane().setLayout(null);
 
 		JLabel centerLbl = new JLabel("Owner Registration:");
@@ -161,10 +160,22 @@ public class OwnerGui {
 			putValue(NAME, "Submit");
 			putValue(SHORT_DESCRIPTION, "Submit Button");
 		}
+		
 		public void actionPerformed(ActionEvent e) {
-			String timeStamp = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss ").format(new java.util.Date());
-			String input ="Time: "+timeStamp+ "Owner: ID:"+ OwnerIdTextField.getText()+" Make:"+VeichleMakeTextField.getText()+ " Model:"+ VeichleModelTextField.getText()+" Year:"+ VeichleYearTextField.getText() +" Residency Time:" + resTimeLabel.getText();                   
+			
+	        if (OwnerIdTextField.getText().trim().isEmpty() || VeichleMakeTextField.getText().trim().isEmpty()|| VeichleModelTextField.getText().trim().isEmpty()|| VeichleYearTextField.getText().trim().isEmpty()|| resTimeLabel.getText().trim().isEmpty()) {
+	       
+				JOptionPane.showMessageDialog(null, "Error. Please enter all the info");
+	        }
+	        
+	        	
+	        
+	        else {
 			try {
+				
+				String timeStamp = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss ").format(new java.util.Date());
+				String input ="Time: "+timeStamp+ "Owner: ID:"+ OwnerIdTextField.getText()+" Make:"+VeichleMakeTextField.getText()+ " Model:"+ VeichleModelTextField.getText()+" Year:"+ VeichleYearTextField.getText() +" Residency Time:" + resTimeLabel.getText();                   
+				
 				FileWriter Writer = new FileWriter("data.txt",true);
 				Writer.write(input+"\n");
 				Writer.close();
@@ -180,4 +191,5 @@ public class OwnerGui {
 			}
 		}
 	}
+}
 }
