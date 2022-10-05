@@ -65,6 +65,7 @@ public class OwnerGui {
 		OwnerGui.setBounds(100, 100, 940, 704);
 		OwnerGui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		OwnerGui.getContentPane().setBackground(new Color(0, 191, 255));
+		OwnerGui.setResizable(false);
 		OwnerGui.getContentPane().setLayout(null);
 
 		JLabel centerLbl = new JLabel("Owner Registration:");
@@ -162,16 +163,17 @@ public class OwnerGui {
 		}
 		public void actionPerformed(ActionEvent e) {
 			String timeStamp = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss ").format(new java.util.Date());
-			
-			
 			String input ="Time: "+timeStamp+ "Owner: ID:"+ OwnerIdTextField.getText()+" Make:"+VeichleMakeTextField.getText()+ " Model:"+ VeichleModelTextField.getText()+" Year:"+ VeichleYearTextField.getText() +" Residency Time:" + resTimeLabel.getText();                   
 			try {
 				FileWriter Writer = new FileWriter("data.txt",true);
 				Writer.write(input+"\n");
 				Writer.close();
 				JOptionPane.showMessageDialog(null, "Success, written to file");
-				
-				
+				OwnerIdTextField.setText("");
+				VeichleMakeTextField.setText("");
+				VeichleModelTextField.setText("");
+				VeichleYearTextField.setText("");
+				resTimeLabel.setText("");	
 			}
 			catch(Exception a){
 				JOptionPane.showMessageDialog(null, "Error :(");

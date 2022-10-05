@@ -1,7 +1,0 @@
-Owner: ID:1 Make:asdas Model:dfasfsa Year:asfasf Residency Time:asfafssaf
-Owner: ID:2 Make:fff Model:fffff Year:asfg Residency Time:hhhhhhhhh
-client: ID:1212 Duration:2asfsaf Deadline:afsgffhhfg
-Time: 2022-10-04T06:38:49.896252100ZOwner: ID:a Make: Model: Year: Residency Time:
-Time: 2022.10.04.02.46.29Owner: ID:asd Make: Model: Year: Residency Time:
-Time: 10.04.2022 02.47.27 Owner: ID:a Make: Model: Year: Residency Time:
-Time: 10/04/2022 02:47:53 Owner: ID: Make: Model: Year: Residency Time:a

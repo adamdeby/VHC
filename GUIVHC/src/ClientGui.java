@@ -55,6 +55,7 @@ public class ClientGui {
 	private void initialize() {
 		ClientGui = new JFrame();
 		ClientGui.getContentPane().setBackground(new Color(0, 191, 255));
+		ClientGui.setResizable(false);
 		ClientGui.getContentPane().setLayout(null);
 		
 		JButton BackToMain = new JButton("Back");
@@ -137,6 +138,9 @@ public class ClientGui {
 				Writer.write(input+"\n");
 				Writer.close();
 				JOptionPane.showMessageDialog(null, "Success, written to file");
+				clientIDBox.setText("");
+				jobDurBox.setText("");
+				dealineBox.setText("");	
 				
 				
 			}

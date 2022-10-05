@@ -88,6 +88,7 @@ public class MainMenu {
 		Mainframe = new JFrame();
 		Mainframe.getContentPane().setBackground(new Color(0, 191, 255));
 		Mainframe.setBounds(100, 100, 940, 704);
+		Mainframe.setResizable(false);
 		Mainframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		Mainframe.getContentPane().setLayout(null);
 
