@@ -1,6 +1,7 @@
 import java.awt.Color;
 import java.awt.EventQueue;
 
+
 import javax.swing.JFrame;
 import javax.swing.JButton;
 import javax.swing.AbstractAction;
@@ -10,8 +11,10 @@ import java.awt.event.ActionListener;
 
 public class RealTimeReportGui {
 
-	 JFrame RTRframe;
-	 private final Action action = new SwingAction();
+	
+
+	JFrame RTRframe;
+	private final Action action = new SwingAction();
 
 	/**
 	 * Launch the application.
@@ -45,25 +48,37 @@ public class RealTimeReportGui {
 		RTRframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		RTRframe.getContentPane().setBackground(new Color(0, 191, 255));
 		RTRframe.getContentPane().setLayout(null);
-		
-		JButton button = new JButton("New button");
-		button.addActionListener(new ActionListener() {
+
+		JButton btnBackReport = new JButton("Back");
+		btnBackReport.setAction(action);
+		btnBackReport.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
-				
+				MainMenu mf = new MainMenu();
+				mf.Mainframe.setVisible(true);
+				RTRframe.setVisible(false);
 			}
 		});
-		button.setAction(action);
-		button.setBounds(93, 319, 89, 23);
-		RTRframe.getContentPane().add(button);
+
+		btnBackReport.setBounds(75, 583, 152, 46);
+		RTRframe.getContentPane().add(btnBackReport);
 
 	}
+
 	private class SwingAction extends AbstractAction {
 		public SwingAction() {
-			putValue(NAME, "SwingAction");
-			putValue(SHORT_DESCRIPTION, "Some short description");
+			putValue(NAME, "Back");
+			putValue(SHORT_DESCRIPTION, "back button report");
 		}
+
 		public void actionPerformed(ActionEvent e) {
+
 		}
 	}
+
+	public void showResults() {
+
+		
+		
+	}
+
 }

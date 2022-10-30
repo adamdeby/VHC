@@ -125,18 +125,18 @@ public class MainMenu {
 		centerLbl.setBounds(589, 32, 241, 80);
 		Mainframe.getContentPane().add(centerLbl);
 
-		JButton RealTimeReport = new JButton("Real Time Report");
-		RealTimeReport.addActionListener(new ActionListener() {
+		JButton btnRealTimeReport = new JButton("Real Time Report");
+		btnRealTimeReport.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				RealTimeReportGui sss = new RealTimeReportGui();
 				sss.RTRframe.setVisible(true);
 				Mainframe.dispose();
 			}
 		});
-		RealTimeReport.setAction(action_2);
-		RealTimeReport.setFont(new Font("Yu Gothic UI", Font.PLAIN, 12));
-		RealTimeReport.setBounds(723, 409, 132, 50);
-		Mainframe.getContentPane().add(RealTimeReport);
+		btnRealTimeReport.setAction(action_2);
+		btnRealTimeReport.setFont(new Font("Yu Gothic UI", Font.PLAIN, 15));
+		btnRealTimeReport.setBounds(723, 409, 132, 50);
+		Mainframe.getContentPane().add(btnRealTimeReport);
 
 		JLabel reportIcon = new JLabel("");
 		reportIcon.setBounds(614, 409, 72, 50);
@@ -200,8 +200,8 @@ public class MainMenu {
 	}
 	private class SwingAction_2 extends AbstractAction {
 		public SwingAction_2() {
-			putValue(NAME, "SwingAction_2");
-			putValue(SHORT_DESCRIPTION, "Some short description");
+			putValue(NAME, "Report");
+			putValue(SHORT_DESCRIPTION, "Real time support");
 		}
 		public void actionPerformed(ActionEvent e) {
 		}
