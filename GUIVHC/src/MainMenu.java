@@ -18,6 +18,7 @@ import java.util.GregorianCalendar;
 import javax.swing.Action;
 import java.awt.SystemColor;
 import javax.swing.JPanel;
+import java.awt.event.ActionListener;
 
 public class MainMenu {
 
@@ -26,6 +27,7 @@ public class MainMenu {
 	private JLabel Clock;
 	private final JPanel panel = new JPanel();
 	private final Action action_1 = new SwingAction_1();
+	private final Action action_2 = new SwingAction_2();
 
 	/**
 	 * Launch the application.
@@ -124,6 +126,14 @@ public class MainMenu {
 		Mainframe.getContentPane().add(centerLbl);
 
 		JButton RealTimeReport = new JButton("Real Time Report");
+		RealTimeReport.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				RealTimeReportGui sss = new RealTimeReportGui();
+				sss.RTRframe.setVisible(true);
+				Mainframe.dispose();
+			}
+		});
+		RealTimeReport.setAction(action_2);
 		RealTimeReport.setFont(new Font("Yu Gothic UI", Font.PLAIN, 12));
 		RealTimeReport.setBounds(723, 409, 132, 50);
 		Mainframe.getContentPane().add(RealTimeReport);
@@ -186,6 +196,14 @@ public class MainMenu {
 			openClientGui.ClientGui.setVisible(true);
 			Mainframe.dispose();
 
+		}
+	}
+	private class SwingAction_2 extends AbstractAction {
+		public SwingAction_2() {
+			putValue(NAME, "SwingAction_2");
+			putValue(SHORT_DESCRIPTION, "Some short description");
+		}
+		public void actionPerformed(ActionEvent e) {
 		}
 	}
 }
