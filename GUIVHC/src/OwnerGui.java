@@ -181,7 +181,7 @@ public class OwnerGui {
 							+ VeichleMakeTextField.getText() + " Model:" + VeichleModelTextField.getText() + " Year:"
 							+ VeichleYearTextField.getText() + " Residency Time:" + resTimeLabel.getText();
 
-					FileWriter Writer = new FileWriter("data.txt", true);
+					FileWriter Writer = new FileWriter("OwnerInfo.txt", true);
 					Writer.write(input + "\n");
 					Writer.close();
 					JOptionPane.showMessageDialog(null, "Success, written to file");

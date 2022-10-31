@@ -11,7 +11,7 @@ import java.awt.event.ActionListener;
 
 public class RealTimeReportGui {
 
-	
+	//THIS IS OUR CONTROLLER GUI FRAME! not real time report will change name later 
 
 	JFrame RTRframe;
 	private final Action action = new SwingAction();
@@ -61,6 +61,22 @@ public class RealTimeReportGui {
 
 		btnBackReport.setBounds(75, 583, 152, 46);
 		RTRframe.getContentPane().add(btnBackReport);
+		
+		JButton btnNewButton = new JButton("Calculate Time");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnNewButton.setBounds(593, 501, 162, 46);
+		RTRframe.getContentPane().add(btnNewButton);
+		
+		JButton btnNewButton_1 = new JButton("We need to somehow dispaly the current jobs and then return the time after the user clicks the button");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnNewButton_1.setBounds(51, 75, 756, 254);
+		RTRframe.getContentPane().add(btnNewButton_1);
 
 	}
 
@@ -80,5 +96,4 @@ public class RealTimeReportGui {
 		
 		
 	}
-
 }

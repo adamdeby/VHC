@@ -160,7 +160,8 @@ public class ClientGui {
 		public void actionPerformed(ActionEvent e) {
 
 			if (clientIDBox.getText().trim().isEmpty() || jobDurBox.getText().trim().isEmpty()
-					|| dealineBox.getText().trim().isEmpty()) {
+					|| dealineBox.getText().trim().isEmpty() || textFieldLName.getText().trim().isEmpty()|| textFieldFName.getText().trim().isEmpty()) {
+			
 
 				JOptionPane.showMessageDialog(null, "Error. Please enter all the info");
 			} else {
@@ -175,7 +176,7 @@ public class ClientGui {
 					}
 					jobTime.add(x);
 					
-					FileWriter Writer = new FileWriter("data.txt", true);
+					FileWriter Writer = new FileWriter("ClientInfo.txt", true);
 					String timeStamp = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss ").format(new java.util.Date());
 					String input = "Time: " + timeStamp + "Client: ID:" + clientIDBox.getText() + " Duration:"
 							+ jobDurBox.getText() + " Deadline:" + dealineBox.getText() +" array "+jobTime;
@@ -185,6 +186,8 @@ public class ClientGui {
 					clientIDBox.setText("");
 					jobDurBox.setText("");
 					dealineBox.setText("");
+					textFieldFName.setText("");
+					textFieldLName.setText("");
 
 				} catch (Exception a) {
 					JOptionPane.showMessageDialog(null, "Error :(");

@@ -200,7 +200,7 @@ public class MainMenu {
 	}
 	private class SwingAction_2 extends AbstractAction {
 		public SwingAction_2() {
-			putValue(NAME, "Report");
+			putValue(NAME, "Controller");
 			putValue(SHORT_DESCRIPTION, "Real time support");
 		}
 		public void actionPerformed(ActionEvent e) {
