@@ -1,0 +1,4 @@
+Time: 10/30/2022 01:29:56 Client: ID:sadas Duration:1 Deadline:asd array [1]
+Time: 10/30/2022 01:30:02 Client: ID:asdas Duration:2 Deadline:asd array [1, 2]
+Time: 10/30/2022 01:30:09 Client: ID:asdas Duration:543 Deadline:adas array [1, 2, 543]
+Time: 10/30/2022 01:30:13 Client: ID:asdas Duration:534 Deadline:asda array [1, 2, 543, 534]
