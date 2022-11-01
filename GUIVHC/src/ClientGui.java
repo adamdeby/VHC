@@ -19,6 +19,7 @@ import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.PriorityQueue;
@@ -40,6 +41,11 @@ public class ClientGui {
 	String yy;
 	public static ArrayList<String> stringID = new ArrayList<String>();
 	public static Map<String, Integer> idTime = new HashMap<>();
+	public static PriorityQueue<Integer> queue=new PriorityQueue<Integer>();
+	public static PriorityQueue<Integer> duplicate=new PriorityQueue<Integer>();
+	
+	public static PriorityQueue<String> queueID=new PriorityQueue<String>(Collections.reverseOrder());
+	
 	 
 	/**
 	 * Launch the application.
@@ -269,7 +275,7 @@ public class ClientGui {
 					FileWriter Writer = new FileWriter("ClientInfo.txt", true);
 					String timeStamp = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss ").format(new java.util.Date());
 					String input = "Time: " + timeStamp + "Client: ID:" + clientIDBox.getText() + " Duration:"
-							+ jobDurBox.getText() + " Deadline:" + dealineBox.getText() + " array " +arrayMethod() + arrayMethodID() +"queue: "+ queueTest() +"queueID "+queueTestID();
+							+ jobDurBox.getText() + " Deadline:" + dealineBox.getText() + " array " +arrayMethod() + arrayMethodID() +"queue: "+ queueDuration() +"queueID "+queueTestID();
 					
 					
 							//+ "Completion Times:" + completedJobs;
@@ -312,23 +318,26 @@ public class ClientGui {
 		
 		return stringID;
 	}
-	PriorityQueue<Integer> queue=new PriorityQueue<Integer>();
 	
-public   PriorityQueue<Integer> queueTest() {
+	
+	
+public   PriorityQueue<Integer> queueDuration() {
 		
 	try {
 		xx = Integer.parseInt(jobDurBox.getText());
+		
 		
 	} catch (NumberFormatException v) {
 		xx = 0; // error handling
 	}
 	queue.add(xx);
+	duplicate = queue;
 	return queue;
 	
 		
 	}
 
-PriorityQueue<String> queueID=new PriorityQueue<String>();
+
 public   PriorityQueue<String> queueTestID() {
 	
 	try {

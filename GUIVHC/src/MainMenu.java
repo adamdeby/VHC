@@ -20,7 +20,7 @@ import java.awt.SystemColor;
 import javax.swing.JPanel;
 import java.awt.event.ActionListener;
 
-public class MainMenu {
+public class MainMenu extends RealTimeReportGui{
 
 	JFrame Mainframe;
 	private final Action action = new SwingAction();
@@ -125,12 +125,29 @@ public class MainMenu {
 		centerLbl.setBounds(589, 32, 241, 80);
 		Mainframe.getContentPane().add(centerLbl);
 
-		JButton btnRealTimeReport = new JButton("Real Time Report");
+		JButton btnRealTimeReport = new JButton("Real Time Report"); //controller
 		btnRealTimeReport.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				RealTimeReportGui sss = new RealTimeReportGui();
 				sss.RTRframe.setVisible(true);
 				Mainframe.dispose();
+				
+				
+				
+				
+				sumArray =cloudController.computeResult(jobTime);
+				
+				
+				
+				RealTimeReportGui.txtfieldID.setText(stringID.toString());
+				
+				RealTimeReportGui.textField.setText(jobTime.toString());
+				
+				RealTimeReportGui.textFieldTime.setText(sumArray.toString());
+				
+				
+				
+				
 			}
 		});
 		btnRealTimeReport.setAction(action_2);
@@ -191,10 +208,20 @@ public class MainMenu {
 			putValue(SHORT_DESCRIPTION, "Some short description");
 		}
 
-		public void actionPerformed(ActionEvent e) {
+		public void actionPerformed(ActionEvent e) { 
 			ClientGui openClientGui = new ClientGui();
 			openClientGui.ClientGui.setVisible(true);
 			Mainframe.dispose();
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
 
 		}
 	}

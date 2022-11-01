@@ -30,12 +30,14 @@ public class RealTimeReportGui extends cloudController {
 	JFrame RTRframe;
 
 	private final Action action = new SwingAction();
-	private JTextField txtfieldID;
+	public static JTextField txtfieldID;
 	
-	private JTextField textFieldTime;
-	private JLabel UserLabel;
-	private JLabel JobDurationLabel;
-	private JTable table;
+	public static JTextField textFieldTime;
+	public JLabel UserLabel;
+	public JLabel JobDurationLabel;
+	public JTable table;
+	public static JTextField textField;
+	ArrayList<Integer> sumArray = new ArrayList<Integer>() ;
 	/**
 	 * Launch the application.
 	 */
@@ -97,70 +99,36 @@ public class RealTimeReportGui extends cloudController {
 		textFieldTime.setEditable(false);
 		
 		textFieldTime.setColumns(10);
-		textFieldTime.setBounds(75, 213, 351, 46);
+		textFieldTime.setBounds(75, 346, 351, 46);
 		RTRframe.getContentPane().add(textFieldTime);
 		
+		textField = new JTextField();
+		textField.setEditable(false);
+		
+		textField.setColumns(10);
+		textField.setBounds(75, 220, 351, 46);
+		RTRframe.getContentPane().add(textField);
 		
 		
-		JButton btnNewButton = new JButton("Calculate Time"); //we need to show calculated time
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-				
-				
-				
-				
-				queueTest();// get number duration
-				JOptionPane.showMessageDialog(null, "completed time will be: "+ cloudController.sum(queue) );
-				
-				
-				
-				cloudController.computeTime(stringID,jobTime);
-				
-				JOptionPane.showMessageDialog(null, "completed time will be: "+ cloudController.results() );
-				
-				
-				 Set<String> keySet = idTime.keySet();
-				  
-			        // Creating an ArrayList of keys
-			        // by passing the keySet
-			        ArrayList<String> listOfKeys = new ArrayList<String>(keySet);
-			  
-			        // Getting Collection of values from HashMap
-			        Collection<Integer> values = idTime.values();
-			  
-			        // Creating an ArrayList of values
-			        ArrayList<Number> listOfValues = new ArrayList<>(values);
-				
-			        String listString = String.join(", ", listOfKeys);
-			        String listTime = listOfValues.toString();
-				
-				txtfieldID.setText(listString);
-				
-				textFieldTime.setText(listTime);
-				
-				
-				
-				
-				
-				
-				
-				
-				
-			}
-		});
-		btnNewButton.setBounds(593, 501, 162, 46);
-		RTRframe.getContentPane().add(btnNewButton);
+
+		
 		
 		UserLabel = new JLabel("Client ID:");
 		UserLabel.setFont(new Font("Yu Gothic", Font.BOLD, 17));
 		UserLabel.setBounds(75, 90, 152, 30);
 		RTRframe.getContentPane().add(UserLabel);
 		
-		JobDurationLabel = new JLabel("Job Duration:");
+		JobDurationLabel = new JLabel("Job Duration (Completed Time):");
 		JobDurationLabel.setFont(new Font("Yu Gothic", Font.BOLD, 17));
-		JobDurationLabel.setBounds(75, 177, 152, 30);
+		JobDurationLabel.setBounds(75, 304, 304, 30);
 		RTRframe.getContentPane().add(JobDurationLabel);
+		
+		JLabel originalTextBox = new JLabel("Original Time:");
+		originalTextBox.setFont(new Font("Dialog", Font.BOLD, 17));
+		originalTextBox.setBounds(75, 190, 152, 30);
+		RTRframe.getContentPane().add(originalTextBox);
+		
+		
 		
 		
 		

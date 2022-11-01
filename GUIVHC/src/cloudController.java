@@ -13,32 +13,52 @@ import javax.swing.JTextArea;
 public class cloudController extends ClientGui {
 
 	public static void main(String args[]) {
-		cloudController x = new cloudController();
-
-		System.out.println(x.computeTime(stringID,jobTime));
+		
 		
 
 	}
 
-	public static  Map computeTime(ArrayList<String> id, ArrayList<Integer> list) { //map method
-		int sum = 0;
-		for (int i = 0; i < list.size(); i++) {
-			sum += list.get(i);
-			String idPlace= id.get(i);
-			idTime.put(idPlace, sum);
-		}
-		return idTime ;
-	}
 	
 	
-	public static int sum(PriorityQueue<Integer> q) {
-		int sum = 0;
+	public static String sum(PriorityQueue<Integer> q) {
+		int sum =0;
+		q.poll();
+		
+		
+		String c ="";
 		while (!q.isEmpty()) {
+		
 		int n = q.remove();
 		sum += n;
+		 c = "sum:" + sum+c;
+		
 		}
-		return sum;
+		return c;
+		
 		}
+	public static String ID (PriorityQueue<String> r) {
+		String ID ="";
+		while (!r.isEmpty()) {
+			String n = r.remove();
+			 ID = "ID: "+ID+n;
+		
+			
+		}
+		return ID;
+		
+	}
+	
+	public static ArrayList<Integer> computeResult(ArrayList<Integer>input){
+		int sum=0;
+		ArrayList<Integer> resultArray = new ArrayList<Integer>() ;
+		for(int i=0;i<input.size();i++)
+		{
+			sum += input.get(i);
+			resultArray.add(sum);
+			
+		}
+		return resultArray;
+	}
 
 
 
