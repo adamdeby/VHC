@@ -17,6 +17,9 @@ import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
+
+
+
 import java.util.ArrayList;
 
 public class ClientGui {
@@ -150,7 +153,86 @@ public class ClientGui {
 		public void actionPerformed(ActionEvent e) {
 		}
 	}
+	
+	class Node {
+	    int duration;
+	    Node next;
 
+	    public Node(int durationMinutes) {
+	        this.duration = durationMinutes;
+	        this.next = null;
+	    }
+	}
+
+class Queue {
+    Node head;
+    Node tail;
+    int numOfElements;
+
+    public Queue() {
+        this.head = null;
+        this.tail = null;
+        this.numOfElements = 0;
+    }
+    void enqueu(int durationMinutes) {
+        Node temp = new Node(durationMinutes);
+
+        if (head == null && tail == null) { // List is empty - First node will be Head and Tail
+            this.head = temp;
+            this.tail = temp;
+            this.numOfElements += 1;
+        } else {
+            temp.duration = temp.duration + this.tail.duration;
+            this.tail.next = temp;
+            this.tail = temp;
+            this.numOfElements+=1;
+        }
+    }
+
+    int dequeue() {
+        if (this.head == null) {
+            return -9999;
+        }
+        Node temp = this.head;
+        this.head = this.head.next;
+        this.numOfElements -= 1;
+
+        if (this.head == null) {
+            this.tail = null;
+        }
+
+        return temp.duration;
+    }
+    String listOut() {
+        StringBuilder builder = new StringBuilder();
+        String s;
+        while (this.numOfElements > 0) {
+            int val = dequeue();
+            builder.append(val);
+            builder.append(", ");
+            //s = "hi";
+        }
+
+        s = builder.toString();
+        return s;
+    }
+
+}
+
+
+public String Add() {
+
+      Queue q = new Queue();
+
+
+
+      for (int i = 0; i < jobTime.size(); i++) {
+          q.enqueu(jobTime.get(i));
+      }
+
+     return q.listOut();
+  }
+	
 	private class SwingAction_1 extends AbstractAction {
 		public SwingAction_1() {
 			putValue(NAME, "Submit");
@@ -175,11 +257,13 @@ public class ClientGui {
 						x=0; //error handling
 					}
 					jobTime.add(x);
-					
+
+		String completedJobs = jobTime+ Add();
 					FileWriter Writer = new FileWriter("ClientInfo.txt", true);
 					String timeStamp = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss ").format(new java.util.Date());
 					String input = "Time: " + timeStamp + "Client: ID:" + clientIDBox.getText() + " Duration:"
-							+ jobDurBox.getText() + " Deadline:" + dealineBox.getText() +" array "+jobTime;
+							+ jobDurBox.getText() + " Deadline:" + dealineBox.getText() +" array "+jobTime+ "Completion Times:" +completedJobs;
+			
 					Writer.write(input + "\n");
 					Writer.close();
 					JOptionPane.showMessageDialog(null, "Success, written to file");
