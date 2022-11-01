@@ -247,7 +247,8 @@ public String Add() {
 
 				JOptionPane.showMessageDialog(null, "Error. Please enter all the info");
 			} else {
-				try {
+				try { 
+					
 					
 					int x;
 					try {
