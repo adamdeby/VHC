@@ -21,12 +21,13 @@ import javax.swing.border.LineBorder;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.PriorityQueue;
 
 public class ClientGui {
 
 	JFrame ClientGui;
 	private final Action action = new SwingAction();
-	public static JTextField clientIDBox;
+	public  JTextField clientIDBox;
 	public JTextField jobDurBox;
 	private JTextField dealineBox;
 	private final Action action_1 = new SwingAction_1(); // submit button needs to be copied
@@ -34,8 +35,11 @@ public class ClientGui {
 	private JTextField textFieldLName;
 	private JTextField textFieldFName;
 	int x;
-	public static String id;
-	 public static Map<String, Number> idTime = new HashMap<>();
+	int xx;
+	String y;
+	String yy;
+	public static ArrayList<String> stringID = new ArrayList<String>();
+	public static Map<String, Integer> idTime = new HashMap<>();
 	 
 	/**
 	 * Launch the application.
@@ -265,7 +269,7 @@ public class ClientGui {
 					FileWriter Writer = new FileWriter("ClientInfo.txt", true);
 					String timeStamp = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss ").format(new java.util.Date());
 					String input = "Time: " + timeStamp + "Client: ID:" + clientIDBox.getText() + " Duration:"
-							+ jobDurBox.getText() + " Deadline:" + dealineBox.getText() + " array " +arrayMethod()  ;
+							+ jobDurBox.getText() + " Deadline:" + dealineBox.getText() + " array " +arrayMethod() + arrayMethodID() +"queue: "+ queueTest() +"queueID "+queueTestID();
 					
 					
 							//+ "Completion Times:" + completedJobs;
@@ -289,11 +293,54 @@ public class ClientGui {
 		
 		try {
 			x = Integer.parseInt(jobDurBox.getText());
+			
 		} catch (NumberFormatException v) {
 			x = 0; // error handling
 		}
 		jobTime.add(x);
+		
 		return jobTime;
+	}
+	public ArrayList<String> arrayMethodID() {
+		
+		try {
+			y= clientIDBox.getText();
+		} catch (NumberFormatException w) {
+			y = ""; // error handling
+		}
+		stringID.add(y);
+		
+		return stringID;
+	}
+	PriorityQueue<Integer> queue=new PriorityQueue<Integer>();
+	
+public   PriorityQueue<Integer> queueTest() {
+		
+	try {
+		xx = Integer.parseInt(jobDurBox.getText());
+		
+	} catch (NumberFormatException v) {
+		xx = 0; // error handling
+	}
+	queue.add(xx);
+	return queue;
+	
+		
+	}
+
+PriorityQueue<String> queueID=new PriorityQueue<String>();
+public   PriorityQueue<String> queueTestID() {
+	
+	try {
+		yy = (clientIDBox.getText());
+		
+	} catch (NumberFormatException v) {
+		yy = ""; // error handling
+	}
+	queueID.add(yy);
+	return queueID;
+	
+		
 	}
 
 		
