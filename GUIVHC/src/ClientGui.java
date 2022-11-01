@@ -18,21 +18,25 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 
-
-
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class ClientGui {
 
 	JFrame ClientGui;
 	private final Action action = new SwingAction();
-	private JTextField clientIDBox;
-	private JTextField jobDurBox;
+	public static JTextField clientIDBox;
+	public JTextField jobDurBox;
 	private JTextField dealineBox;
 	private final Action action_1 = new SwingAction_1(); // submit button needs to be copied
-	ArrayList<Integer> jobTime = new ArrayList<Integer>(); // arraylist to hold all time values
+	public static ArrayList<Integer> jobTime = new ArrayList<Integer>(); // arraylist to hold all time values
 	private JTextField textFieldLName;
 	private JTextField textFieldFName;
+	int x;
+	public static String id;
+	 public static Map<String, Number> idTime = new HashMap<>();
+	 
 	/**
 	 * Launch the application.
 	 */
@@ -119,23 +123,23 @@ public class ClientGui {
 		clientTitle.setFont(new Font("Yu Gothic UI", Font.BOLD, 29));
 		clientTitle.setBounds(0, 0, 941, 53);
 		ClientGui.getContentPane().add(clientTitle);
-		
+
 		textFieldLName = new JTextField();
 		textFieldLName.setColumns(10);
 		textFieldLName.setBounds(503, 129, 150, 20);
 		ClientGui.getContentPane().add(textFieldLName);
-		
+
 		textFieldFName = new JTextField();
 		textFieldFName.setColumns(10);
 		textFieldFName.setBounds(503, 88, 150, 20);
 		ClientGui.getContentPane().add(textFieldFName);
 		String FName = textFieldFName.getText();
-		
+
 		JLabel lastNameLabel = new JLabel("Last Name:");
 		lastNameLabel.setFont(new Font("Yu Gothic", Font.BOLD, 18));
 		lastNameLabel.setBounds(268, 121, 225, 40);
 		ClientGui.getContentPane().add(lastNameLabel);
-		
+
 		JLabel firstNameLabel = new JLabel("First Name:");
 		firstNameLabel.setFont(new Font("Yu Gothic", Font.BOLD, 18));
 		firstNameLabel.setBounds(268, 77, 225, 40);
@@ -153,86 +157,85 @@ public class ClientGui {
 		public void actionPerformed(ActionEvent e) {
 		}
 	}
-	
-	class Node {
-	    int duration;
-	    Node next;
 
-	    public Node(int durationMinutes) {
-	        this.duration = durationMinutes;
-	        this.next = null;
-	    }
+	class Node {
+		int duration;
+		Node next;
+
+		public Node(int durationMinutes) {
+			this.duration = durationMinutes;
+			this.next = null;
+		}
 	}
 
-class Queue {
-    Node head;
-    Node tail;
-    int numOfElements;
+	class Queue {
+		Node head;
+		Node tail;
+		int numOfElements;
 
-    public Queue() {
-        this.head = null;
-        this.tail = null;
-        this.numOfElements = 0;
-    }
-    void enqueu(int durationMinutes) {
-        Node temp = new Node(durationMinutes);
+		public Queue() {
+			this.head = null;
+			this.tail = null;
+			this.numOfElements = 0;
+		}
 
-        if (head == null && tail == null) { // List is empty - First node will be Head and Tail
-            this.head = temp;
-            this.tail = temp;
-            this.numOfElements += 1;
-        } else {
-            temp.duration = temp.duration + this.tail.duration;
-            this.tail.next = temp;
-            this.tail = temp;
-            this.numOfElements+=1;
-        }
-    }
+		void enqueu(int durationMinutes) {
+			Node temp = new Node(durationMinutes);
 
-    int dequeue() {
-        if (this.head == null) {
-            return -9999;
-        }
-        Node temp = this.head;
-        this.head = this.head.next;
-        this.numOfElements -= 1;
+			if (head == null && tail == null) { // List is empty - First node will be Head and Tail
+				this.head = temp;
+				this.tail = temp;
+				this.numOfElements += 1;
+			} else {
+				temp.duration = temp.duration + this.tail.duration;
+				this.tail.next = temp;
+				this.tail = temp;
+				this.numOfElements += 1;
+			}
+		}
 
-        if (this.head == null) {
-            this.tail = null;
-        }
+		int dequeue() {
+			if (this.head == null) {
+				return -9999;
+			}
+			Node temp = this.head;
+			this.head = this.head.next;
+			this.numOfElements -= 1;
 
-        return temp.duration;
-    }
-    String listOut() {
-        StringBuilder builder = new StringBuilder();
-        String s;
-        while (this.numOfElements > 0) {
-            int val = dequeue();
-            builder.append(val);
-            builder.append(", ");
-            //s = "hi";
-        }
+			if (this.head == null) {
+				this.tail = null;
+			}
 
-        s = builder.toString();
-        return s;
-    }
+			return temp.duration;
+		}
 
-}
+		String listOut() {
+			StringBuilder builder = new StringBuilder();
+			String s;
+			while (this.numOfElements > 0) {
+				int val = dequeue();
+				builder.append(val);
+				builder.append(", ");
+				// s = "hi";
+			}
 
+			s = builder.toString();
+			return s;
+		}
 
-public String Add() {
+	}
 
-      Queue q = new Queue();
+	public String Add() {
 
+		Queue q = new Queue();
 
+		for (int i = 0; i < jobTime.size(); i++) {
+			q.enqueu(jobTime.get(i));
+		}
 
-      for (int i = 0; i < jobTime.size(); i++) {
-          q.enqueu(jobTime.get(i));
-      }
+		return q.listOut();
+	}
 
-     return q.listOut();
-  }
-	
 	private class SwingAction_1 extends AbstractAction {
 		public SwingAction_1() {
 			putValue(NAME, "Submit");
@@ -242,29 +245,31 @@ public String Add() {
 		public void actionPerformed(ActionEvent e) {
 
 			if (clientIDBox.getText().trim().isEmpty() || jobDurBox.getText().trim().isEmpty()
-					|| dealineBox.getText().trim().isEmpty() || textFieldLName.getText().trim().isEmpty()|| textFieldFName.getText().trim().isEmpty()) {
-			
+					|| dealineBox.getText().trim().isEmpty() || textFieldLName.getText().trim().isEmpty()
+					|| textFieldFName.getText().trim().isEmpty()) {
 
 				JOptionPane.showMessageDialog(null, "Error. Please enter all the info");
 			} else {
-				try { 
+				try {
+					//arrayMethod();
 					
-					
-					int x;
-					try {
-						x= Integer.parseInt(jobDurBox.getText());
-					}
-					catch (NumberFormatException v){
-						x=0; //error handling
-					}
-					jobTime.add(x);
+					//int x;
+					//try {
+					//	x = Integer.parseInt(jobDurBox.getText());
+					//} catch (NumberFormatException v) {
+					//	x = 0; // error handling
+					//}
+					//jobTime.add(x);
 
-		String completedJobs = jobTime+ Add();
+					//String completedJobs = jobTime + Add(); // 
 					FileWriter Writer = new FileWriter("ClientInfo.txt", true);
 					String timeStamp = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss ").format(new java.util.Date());
 					String input = "Time: " + timeStamp + "Client: ID:" + clientIDBox.getText() + " Duration:"
-							+ jobDurBox.getText() + " Deadline:" + dealineBox.getText() +" array "+jobTime+ "Completion Times:" +completedJobs;
-			
+							+ jobDurBox.getText() + " Deadline:" + dealineBox.getText() + " array " +arrayMethod()  ;
+					
+					
+							//+ "Completion Times:" + completedJobs;
+
 					Writer.write(input + "\n");
 					Writer.close();
 					JOptionPane.showMessageDialog(null, "Success, written to file");
@@ -280,4 +285,18 @@ public String Add() {
 			}
 		}
 	}
+	public ArrayList<Integer> arrayMethod() {
+		
+		try {
+			x = Integer.parseInt(jobDurBox.getText());
+		} catch (NumberFormatException v) {
+			x = 0; // error handling
+		}
+		jobTime.add(x);
+		return jobTime;
+	}
+
+		
+		
+	
 }

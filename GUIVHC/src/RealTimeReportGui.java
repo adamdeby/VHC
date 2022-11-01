@@ -3,19 +3,20 @@ import java.awt.EventQueue;
 
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JButton;
 import javax.swing.AbstractAction;
 import java.awt.event.ActionEvent;
 import javax.swing.Action;
 import java.awt.event.ActionListener;
 
-public class RealTimeReportGui {
+public class RealTimeReportGui extends cloudController {
 
 	//THIS IS OUR CONTROLLER GUI FRAME! not real time report will change name later 
-
+	
 	JFrame RTRframe;
-	private final Action action = new SwingAction();
 
+	private final Action action = new SwingAction();
 	/**
 	 * Launch the application.
 	 */
@@ -43,6 +44,7 @@ public class RealTimeReportGui {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
+		
 		RTRframe = new JFrame();
 		RTRframe.setBounds(100, 100, 940, 704);
 		RTRframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -62,9 +64,13 @@ public class RealTimeReportGui {
 		btnBackReport.setBounds(75, 583, 152, 46);
 		RTRframe.getContentPane().add(btnBackReport);
 		
-		JButton btnNewButton = new JButton("Calculate Time");
+		JButton btnNewButton = new JButton("Calculate Time"); //we need to show calculated time
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				cloudController.computeTime(jobTime);
+				JOptionPane.showMessageDialog(null, "completed time will be: "+ idTime.keySet()+cloudController.results() );
+				
 			}
 		});
 		btnNewButton.setBounds(593, 501, 162, 46);
