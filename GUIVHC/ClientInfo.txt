@@ -1,5 +1,0 @@
-Time: 11/01/2022 21:26:26 Client ID:345 Job Duration:5 Deadline:March 12th All Duration Times:[5] All Client IDs:[345]
-Time: 11/01/2022 21:26:47 Client ID:56 Job Duration:2 Deadline:April 20th All Duration Times:[5, 2] All Client IDs:[345, 56]
-Time: 11/01/2022 21:27:06 Client ID:690 Job Duration:9 Deadline:June 5th All Duration Times:[5, 2, 9] All Client IDs:[345, 56, 690]
-Time: 11/01/2022 21:51:10 Client ID:123 Job Duration:20 Deadline:fghj All Duration Times:[20] All Client IDs:[123]
-Time: 11/01/2022 21:51:20 Client ID:567 Job Duration:5 Deadline:vghjv All Duration Times:[20, 5] All Client IDs:[123, 567]

@@ -40,12 +40,7 @@ public class ClientGui {
 	String y;
 	String yy;
 	public static ArrayList<String> stringID = new ArrayList<String>();
-	public static Map<String, Integer> idTime = new HashMap<>();
-	public static PriorityQueue<Integer> queue=new PriorityQueue<Integer>();
-	public static PriorityQueue<Integer> duplicate=new PriorityQueue<Integer>();
-	
-	public static PriorityQueue<String> queueID=new PriorityQueue<String>(Collections.reverseOrder());
-	
+
 	 
 	/**
 	 * Launch the application.
