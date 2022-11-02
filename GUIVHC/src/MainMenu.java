@@ -20,7 +20,7 @@ import java.awt.SystemColor;
 import javax.swing.JPanel;
 import java.awt.event.ActionListener;
 
-public class MainMenu extends RealTimeReportGui{
+public class MainMenu extends CloudControllerGui{
 
 	JFrame Mainframe;
 	private final Action action = new SwingAction();
@@ -128,7 +128,7 @@ public class MainMenu extends RealTimeReportGui{
 		JButton btnRealTimeReport = new JButton("Real Time Report"); //controller
 		btnRealTimeReport.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				RealTimeReportGui sss = new RealTimeReportGui();
+				CloudControllerGui sss = new CloudControllerGui();
 				sss.RTRframe.setVisible(true);
 				Mainframe.dispose();
 				
@@ -139,11 +139,11 @@ public class MainMenu extends RealTimeReportGui{
 				
 				
 				
-				RealTimeReportGui.txtfieldID.setText(stringID.toString());
+				CloudControllerGui.txtfieldID.setText(stringID.toString());
 				
-				RealTimeReportGui.textField.setText(jobTime.toString());
+				CloudControllerGui.textField.setText(jobTime.toString());
 				
-				RealTimeReportGui.textFieldTime.setText(sumArray.toString());
+				CloudControllerGui.textFieldTime.setText(sumArray.toString());
 				
 				
 				
@@ -211,16 +211,7 @@ public class MainMenu extends RealTimeReportGui{
 		public void actionPerformed(ActionEvent e) { 
 			ClientGui openClientGui = new ClientGui();
 			openClientGui.ClientGui.setVisible(true);
-			Mainframe.dispose();
-			
-			
-			
-			
-			
-			
-			
-			
-			
+			Mainframe.dispose();		
 			
 
 		}

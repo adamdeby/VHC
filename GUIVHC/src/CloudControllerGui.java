@@ -23,9 +23,7 @@ import java.awt.Font;
 import javax.swing.JTable;
 import javax.swing.JScrollPane;
 
-public class RealTimeReportGui extends cloudController {
-
-	//THIS IS OUR CONTROLLER GUI FRAME! not real time report will change name later 
+public class CloudControllerGui extends cloudController {
 	
 	JFrame RTRframe;
 
@@ -45,7 +43,7 @@ public class RealTimeReportGui extends cloudController {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					RealTimeReportGui window = new RealTimeReportGui();
+					CloudControllerGui window = new CloudControllerGui();
 					window.RTRframe.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -57,7 +55,7 @@ public class RealTimeReportGui extends cloudController {
 	/**
 	 * Create the application.
 	 */
-	public RealTimeReportGui() {
+	public CloudControllerGui() {
 		initialize();
 	}
 
@@ -110,10 +108,7 @@ public class RealTimeReportGui extends cloudController {
 		RTRframe.getContentPane().add(textField);
 		
 		
-
-		
-		
-		UserLabel = new JLabel("Client ID:");
+		UserLabel = new JLabel("Client IDs:");
 		UserLabel.setFont(new Font("Yu Gothic", Font.BOLD, 17));
 		UserLabel.setBounds(75, 90, 152, 30);
 		RTRframe.getContentPane().add(UserLabel);
@@ -128,22 +123,6 @@ public class RealTimeReportGui extends cloudController {
 		originalTextBox.setBounds(75, 190, 152, 30);
 		RTRframe.getContentPane().add(originalTextBox);
 		
-		
-		
-		
-		
-		
-	
-		
-		
-	
-		
-	
-		
-	
-		
-		
-		
 
 	}
 
@@ -156,11 +135,5 @@ public class RealTimeReportGui extends cloudController {
 		public void actionPerformed(ActionEvent e) {
 
 		}
-	}
-
-	public void showResults() {
-
-		
-		
 	}
 }
