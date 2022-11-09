@@ -128,26 +128,9 @@ public class MainMenu extends CloudControllerGui{
 		JButton btnRealTimeReport = new JButton("Real Time Report"); //controller
 		btnRealTimeReport.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				CloudControllerGui sss = new CloudControllerGui();
-				sss.RTRframe.setVisible(true);
+				ControllerLogin sss = new ControllerLogin();
+				sss.loginFrame.setVisible(true);
 				Mainframe.dispose();
-				
-				
-				
-				
-				sumArray =cloudController.computeResult(jobTime);
-				
-				
-				
-				CloudControllerGui.txtfieldID.setText(stringID.toString());
-				
-				CloudControllerGui.textField.setText(jobTime.toString());
-				
-				CloudControllerGui.textFieldTime.setText(sumArray.toString());
-				
-				
-				
-				
 			}
 		});
 		btnRealTimeReport.setAction(action_2);
