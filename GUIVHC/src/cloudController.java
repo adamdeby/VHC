@@ -3,6 +3,8 @@ import java.util.Arrays;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.DataInputStream;
@@ -58,24 +60,26 @@ public class cloudController extends ClientGui {
 			outputStream = new DataOutputStream(socket.getOutputStream());
 
 			class acceptRejectWindow extends JFrame {
-				final int FrameWidth = 550;
-				final int FrameHeight = 400;
+			
+				
 				JLabel question;
 				JButton acceptButton;
 				JButton rejectButton;
 
 				public acceptRejectWindow() {
-					question = new JLabel("Do you want to accept or reject the client's data?");
+					question = new JLabel("Accept or reject the users data?");
+					question.setFont(new Font("Yu Gothic", Font.BOLD, 16));
+
 					createAcceptButton();
 					 createRejectButton();
 					 createPanel();
 
-					setSize(FrameWidth, FrameHeight);
+					setSize(550, 80);
 				}
 
 				private void createAcceptButton() {
 					acceptButton = new JButton("Accept");
-					acceptButton.setBounds(10, 100, 180, 125);
+				    acceptButton.setBounds(10, 100, 350, 125);
 					ActionListener acceptButtonListener = new acceptButtonListener();
 					acceptButton.addActionListener(acceptButtonListener);
 				}
@@ -98,6 +102,8 @@ public class cloudController extends ClientGui {
 								output.println("**************************************");
 
 								outputStream.writeUTF("DATA ACCEPTED");
+								JOptionPane.showMessageDialog(null, "Users data has been accepted!");
+
 								output.close();
 							} catch (Exception a) {
 
@@ -117,6 +123,8 @@ public class cloudController extends ClientGui {
 							try 
 							{
 								outputStream.writeUTF("DATA REJECTED");
+								JOptionPane.showMessageDialog(null, "Users data has been rejected!");
+
 							}
 							catch(Exception ex){JOptionPane.showMessageDialog(null, ex);} 
 							{
@@ -129,9 +137,12 @@ public class cloudController extends ClientGui {
 				private void createRejectButton() 
 				{
 					rejectButton = new JButton("Reject");
-					rejectButton.setBounds(10, 125, 80, 25);
+					
+
 					ActionListener rejectButtonListener = new rejectButtonListener(); 
 					rejectButton.addActionListener(rejectButtonListener);
+					rejectButton.setAlignmentX(JButton.CENTER_ALIGNMENT);
+					rejectButton.setFocusable(false);
 				}
 				private void createPanel() 
 				{
@@ -139,6 +150,7 @@ public class cloudController extends ClientGui {
 					panel.add(question);
 					panel.add(acceptButton);
 					panel.add(rejectButton);
+					panel.setBackground(new Color(0, 191, 255));
 					add(panel);
 				}
 					
@@ -161,7 +173,7 @@ public class cloudController extends ClientGui {
 				mFrame.Mainframe.setVisible(true);
 				
 				JFrame frame = new acceptRejectWindow();
-				frame.setTitle("SERVER");
+				frame.setTitle("Client/Server");
 				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 				frame.setVisible(true);
 
