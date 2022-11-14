@@ -29,14 +29,14 @@ import java.util.PriorityQueue;
 public class ClientGui {
 public static String input = "";
 	public JFrame ClientGui;
-	private final Action action = new SwingAction();
+	public final Action action = new SwingAction();
 	public static  JTextField clientIDBox;
 	public static JTextField jobDurBox;
-	private JTextField dealineBox;
-	private final Action action_1 = new SwingAction_1(); // submit button needs to be copied
+	public static JTextField dealineBox;
+	public final Action action_1 = new SwingAction_1(); // submit button needs to be copied
 	public static ArrayList<Integer> jobTime = new ArrayList<Integer>(); // arraylist to hold all time values
-	private JTextField textFieldLName;
-	private JTextField textFieldFName;
+	public static JTextField textFieldLName;
+	public static JTextField textFieldFName;
 	int x;
 	int xx;
 	String y;
@@ -183,27 +183,23 @@ public static String input = "";
 			} else {
 				try {
 					
-					PrintStream output = new PrintStream(new FileOutputStream("ClientInfoTest.txt", true));
+				//	PrintStream output = new PrintStream(new FileOutputStream("ClientInfoTest.txt", true));
 					
 					
 					String timeStamp = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss ").format(new java.util.Date());
 					 input = "Time: " + timeStamp + "Client ID:" + clientIDBox.getText() + " Job Duration:"
-							+ jobDurBox.getText() + " Deadline:" + dealineBox.getText() + " All Duration Times:" +arrayMethod() + " All Client IDs:" + arrayMethodID();
+							+ jobDurBox.getText() + " Deadline:" + dealineBox.getText() ;
 
 					 
-					 output.println(input);
-						output.flush();
-						output.close();
+				//	 output.println(input);
+					//	output.flush();
+					//	output.close();
 						
 				//	 FileWriter Writer = new FileWriter("ClientInfo.txt", true);
 					//Writer.write(input + "\n");
 					//Writer.close();
 					JOptionPane.showMessageDialog(null, "Success, written to file");
-					clientIDBox.setText("");
-					jobDurBox.setText("");
-					dealineBox.setText("");
-					textFieldFName.setText("");
-					textFieldLName.setText("");
+					
 
 				} catch (Exception a) {
 					JOptionPane.showMessageDialog(null, "Error :(");

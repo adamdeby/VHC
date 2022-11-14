@@ -129,7 +129,11 @@ public class cloudController extends ClientGui {
 									
 									AcceptedClientID.add(dummy2);
 									
-					
+									clientIDBox.setText("");
+									jobDurBox.setText("");
+									dealineBox.setText("");
+									textFieldFName.setText("");
+									textFieldLName.setText("");
 									
 									
 									OwnerGui.input = "";
@@ -157,6 +161,12 @@ public class cloudController extends ClientGui {
 						{
 							try 
 							{
+								clientIDBox.setText("");
+								jobDurBox.setText("");
+								dealineBox.setText("");
+								textFieldFName.setText("");
+								textFieldLName.setText("");
+								
 								outputStream.writeUTF("DATA REJECTED");
 								JOptionPane.showMessageDialog(null, "Users data has been rejected!");
 
