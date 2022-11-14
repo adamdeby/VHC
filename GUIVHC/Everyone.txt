@@ -10,3 +10,31 @@ Time: 11/14/2022 00:42:33 Client ID:2 Job Duration:2 Deadline:2
 CLIENT DATA: 
 
 Time: 11/14/2022 00:42:45 Client ID:4 Job Duration:4 Deadline:4
+**************************************
+CLIENT DATA: 
+Time: 11/14/2022 15:07:09 Owner: ID:fsfds Make:dsf Model:sdf Year:sdf Residency Time:sdf
+
+**************************************
+CLIENT DATA: 
+Time: 11/14/2022 15:07:32 Owner: ID:sdf Make:sdf Model:sdf Year:sdfs Residency Time:df
+
+**************************************
+CLIENT DATA: 
+
+Time: 11/14/2022 15:09:00 Client ID:dgfdfg Job Duration:dfgdfg Deadline:dfgdfg
+**************************************
+CLIENT DATA: 
+
+Time: 11/14/2022 15:12:19 Client ID:132 Job Duration:123123 Deadline:123
+**************************************
+CLIENT DATA: 
+
+Time: 11/14/2022 15:13:34 Client ID:1231231 Job Duration:231 Deadline:231
+**************************************
+CLIENT DATA: 
+
+
+**************************************
+CLIENT DATA: 
+
+Time: 11/14/2022 15:22:15 Client ID:asdasd Job Duration:asdasd Deadline:sd

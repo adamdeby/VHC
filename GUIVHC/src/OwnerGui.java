@@ -192,7 +192,7 @@ public static String input = "";
 					FileWriter Writer = new FileWriter("OwnerInfo.txt", true);
 					Writer.write(input + "\n");
 					Writer.close();
-					JOptionPane.showMessageDialog(null, "Success, written to file");
+					JOptionPane.showMessageDialog(null, "Information sent to server. Waiting for approval.");
 					OwnerIdTextField.setText("");
 					VeichleMakeTextField.setText("");
 					VeichleModelTextField.setText("");

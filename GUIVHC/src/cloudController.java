@@ -24,14 +24,14 @@ import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.JTextArea;
 
-
 public class cloudController extends ClientGui {
 
-	public static ArrayList<Integer> AcceptedjobTime = new ArrayList<Integer>(); //updated arraylist to hold all time values	
-	public static ArrayList<String> AcceptedClientID = new ArrayList<String>(); 
-	public static int dummy ;
-	public static String dummy2 ;
-	
+	public static ArrayList<Integer> AcceptedjobTime = new ArrayList<Integer>(); // updated arraylist to hold all time
+																					// values
+	public static ArrayList<String> AcceptedClientID = new ArrayList<String>();
+	public static int dummy;
+	public static String dummy2;
+
 	public static ArrayList<Integer> computeResult(ArrayList<Integer> input) {
 		int sum = 0;
 		ArrayList<Integer> resultArray = new ArrayList<Integer>();
@@ -62,13 +62,11 @@ public class cloudController extends ClientGui {
 			System.out.println("client is connected!");
 			System.out.println("go to client side and send me a message");
 
-			
 			inputStream = new DataInputStream(socket.getInputStream());
 			outputStream = new DataOutputStream(socket.getOutputStream());
 
 			class acceptRejectWindow extends JFrame {
-			
-				
+
 				JLabel question;
 				JButton acceptButton;
 				JButton rejectButton;
@@ -78,15 +76,15 @@ public class cloudController extends ClientGui {
 					question.setFont(new Font("Yu Gothic", Font.BOLD, 16));
 
 					createAcceptButton();
-					 createRejectButton();
-					 createPanel();
+					createRejectButton();
+					createPanel();
 
 					setSize(550, 80);
 				}
 
 				private void createAcceptButton() {
 					acceptButton = new JButton("Accept");
-				    acceptButton.setBounds(10, 100, 350, 125);
+					acceptButton.setBounds(10, 100, 350, 125);
 					ActionListener acceptButtonListener = new acceptButtonListener();
 					acceptButton.addActionListener(acceptButtonListener);
 				}
@@ -97,48 +95,38 @@ public class cloudController extends ClientGui {
 						if (e.getActionCommand() == acceptButton.getActionCommand()) {
 
 							try {
-								
-								
-								
-							
 
 								PrintStream output = new PrintStream(new FileOutputStream("Everyone.txt", true));
 								output.println("**************************************");
 								output.println("CLIENT DATA: ");
-								
-								
-								
-									output.println(OwnerGui.input);
-								
-									output.println(input);
-									
-									try {
-										dummy = Integer.parseInt(jobDurBox.getText());
-									} catch (NumberFormatException w) {
-										dummy = 0; // error handling
-									}
-									AcceptedjobTime.add(dummy);
-									
-									
-									
-									try {
-										dummy2= clientIDBox.getText();
-									} catch (NumberFormatException w) {
-										dummy2 = ""; // error handling
-									}
-									
-									AcceptedClientID.add(dummy2);
-									
-									clientIDBox.setText("");
-									jobDurBox.setText("");
-									dealineBox.setText("");
-									textFieldFName.setText("");
-									textFieldLName.setText("");
-									
-									
-									OwnerGui.input = "";
-									input  = "";
-								
+
+								output.println(OwnerGui.input);
+
+								output.println(input);
+
+								try {
+									dummy = Integer.parseInt(jobDurBox.getText());
+								} catch (NumberFormatException w) {
+									dummy = 0; // error handling
+								}
+								AcceptedjobTime.add(dummy);
+
+								try {
+									dummy2 = clientIDBox.getText();
+								} catch (NumberFormatException w) {
+									dummy2 = ""; // error handling
+								}
+
+								clientIDBox.setText("");
+								jobDurBox.setText("");
+								dealineBox.setText("");
+								textFieldFName.setText("");
+								textFieldLName.setText("");
+
+								AcceptedClientID.add(dummy2);
+
+								OwnerGui.input = "";
+								input = "";
 
 								outputStream.writeUTF("DATA ACCEPTED");
 								JOptionPane.showMessageDialog(null, "Users data has been accepted!");
@@ -153,44 +141,39 @@ public class cloudController extends ClientGui {
 					}
 
 				}
-				class rejectButtonListener implements ActionListener
-				{
-					public void actionPerformed(ActionEvent e)
-					{	
-						if(e.getActionCommand()== rejectButton.getActionCommand())
-						{
-							try 
-							{
+
+				class rejectButtonListener implements ActionListener {
+					public void actionPerformed(ActionEvent e) {
+						if (e.getActionCommand() == rejectButton.getActionCommand()) {
+							try {
 								clientIDBox.setText("");
 								jobDurBox.setText("");
 								dealineBox.setText("");
 								textFieldFName.setText("");
 								textFieldLName.setText("");
-								
+
 								outputStream.writeUTF("DATA REJECTED");
 								JOptionPane.showMessageDialog(null, "Users data has been rejected!");
 
+							} catch (Exception ex) {
+								JOptionPane.showMessageDialog(null, ex);
 							}
-							catch(Exception ex){JOptionPane.showMessageDialog(null, ex);} 
 							{
-								
+
 							}
 						}
 					}
 				}
 
-				private void createRejectButton() 
-				{
+				private void createRejectButton() {
 					rejectButton = new JButton("Reject");
-					
-
-					ActionListener rejectButtonListener = new rejectButtonListener(); 
+					ActionListener rejectButtonListener = new rejectButtonListener();
 					rejectButton.addActionListener(rejectButtonListener);
 					rejectButton.setAlignmentX(JButton.CENTER_ALIGNMENT);
 					rejectButton.setFocusable(false);
 				}
-				private void createPanel() 
-				{
+
+				private void createPanel() {
 					JPanel panel = new JPanel();
 					panel.add(question);
 					panel.add(acceptButton);
@@ -198,27 +181,25 @@ public class cloudController extends ClientGui {
 					panel.setBackground(new Color(0, 191, 255));
 					add(panel);
 				}
-					
+
 			}
 			//////
-			
-			while(true)
-			{
-				if(dataIn.equals("exit")==true) 
-				{
+
+			while (true) {
+				if (dataIn.equals("exit") == true) {
 					System.exit(1);
 				}
-				
+
 				dataIn = inputStream.readUTF();
 				System.out.println("Data received from client: " + "\"" + dataIn + "\"");
-				
+
 				MainMenu mFrame = new MainMenu();
-				
+
 				mFrame.Mainframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 				mFrame.Mainframe.setVisible(true);
-				
+
 				JFrame frame = new acceptRejectWindow();
-				frame.setTitle("Client/Server");
+				frame.setTitle("Server");
 				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 				frame.setVisible(true);
 

@@ -198,7 +198,7 @@ public static String input = "";
 				//	 FileWriter Writer = new FileWriter("ClientInfo.txt", true);
 					//Writer.write(input + "\n");
 					//Writer.close();
-					JOptionPane.showMessageDialog(null, "Success, written to file");
+					JOptionPane.showMessageDialog(null, "Information sent to server. Waiting for approval.");
 					
 
 				} catch (Exception a) {
