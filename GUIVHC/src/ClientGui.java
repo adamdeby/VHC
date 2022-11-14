@@ -30,8 +30,8 @@ public class ClientGui {
 public static String input = "";
 	public JFrame ClientGui;
 	private final Action action = new SwingAction();
-	public  JTextField clientIDBox;
-	public JTextField jobDurBox;
+	public static  JTextField clientIDBox;
+	public static JTextField jobDurBox;
 	private JTextField dealineBox;
 	private final Action action_1 = new SwingAction_1(); // submit button needs to be copied
 	public static ArrayList<Integer> jobTime = new ArrayList<Integer>(); // arraylist to hold all time values

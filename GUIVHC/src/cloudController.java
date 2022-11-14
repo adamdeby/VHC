@@ -27,6 +27,11 @@ import javax.swing.JTextArea;
 
 public class cloudController extends ClientGui {
 
+	public static ArrayList<Integer> AcceptedjobTime = new ArrayList<Integer>(); //updated arraylist to hold all time values	
+	public static ArrayList<String> AcceptedClientID = new ArrayList<String>(); 
+	public static int dummy ;
+	public static String dummy2 ;
+	
 	public static ArrayList<Integer> computeResult(ArrayList<Integer> input) {
 		int sum = 0;
 		ArrayList<Integer> resultArray = new ArrayList<Integer>();
@@ -106,6 +111,26 @@ public class cloudController extends ClientGui {
 									output.println(OwnerGui.input);
 								
 									output.println(input);
+									
+									try {
+										dummy = Integer.parseInt(jobDurBox.getText());
+									} catch (NumberFormatException w) {
+										dummy = 0; // error handling
+									}
+									AcceptedjobTime.add(dummy);
+									
+									
+									
+									try {
+										dummy2= clientIDBox.getText();
+									} catch (NumberFormatException w) {
+										dummy2 = ""; // error handling
+									}
+									
+									AcceptedClientID.add(dummy2);
+									
+					
+									
 									
 									OwnerGui.input = "";
 									input  = "";

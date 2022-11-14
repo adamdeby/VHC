@@ -94,9 +94,11 @@ public class ControllerLogin extends CloudControllerGui{
 					CloudControllerGui sss = new CloudControllerGui();
 					sss.RTRframe.setVisible(true);
 					loginFrame.dispose();
-					sumArray =cloudController.computeResult(jobTime);
-					CloudControllerGui.txtfieldID.setText(stringID.toString());
-					CloudControllerGui.textField.setText(jobTime.toString());
+					
+					
+					sumArray =cloudController.computeResult(AcceptedjobTime);
+					CloudControllerGui.txtfieldID.setText(AcceptedClientID.toString());
+					CloudControllerGui.textField.setText(AcceptedjobTime.toString());
 					CloudControllerGui.textFieldTime.setText(sumArray.toString());
 			  ;
 
