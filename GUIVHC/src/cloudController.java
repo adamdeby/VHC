@@ -102,12 +102,14 @@ public class cloudController extends ClientGui {
 								output.println("CLIENT DATA: ");
 								
 								
-								if (OwnerGui.OwnerGui.isActive()  ) {
+								
 									output.println(OwnerGui.input);
-								}
-								else if(ClientGui.isActive()){	
+								
 									output.println(input);
-								}
+									
+									OwnerGui.input = "";
+									input  = "";
+								
 
 								outputStream.writeUTF("DATA ACCEPTED");
 								JOptionPane.showMessageDialog(null, "Users data has been accepted!");

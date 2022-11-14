@@ -26,7 +26,7 @@ import java.util.Date;
 import java.util.TimeZone;
 
 public class OwnerGui {
-public static String input;
+public static String input = "";
 	public static JFrame OwnerGui;
 	private JTextField OwnerIdTextField;
 	private JTextField VeichleMakeTextField;

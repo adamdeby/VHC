@@ -27,8 +27,8 @@ import java.util.Map;
 import java.util.PriorityQueue;
 
 public class ClientGui {
-public static String input;
-	static JFrame ClientGui;
+public static String input = "";
+	public JFrame ClientGui;
 	private final Action action = new SwingAction();
 	public  JTextField clientIDBox;
 	public JTextField jobDurBox;
@@ -82,6 +82,7 @@ public static String input;
 		BackToMain.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				MainMenu mf = new MainMenu();
+				
 				mf.Mainframe.setVisible(true);
 				ClientGui.setVisible(false);
 			}
