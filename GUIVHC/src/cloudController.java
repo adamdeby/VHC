@@ -11,6 +11,7 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.FileOutputStream;
 import java.io.PrintStream;
+import java.io.StringWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.*;
@@ -56,6 +57,7 @@ public class cloudController extends ClientGui {
 			System.out.println("client is connected!");
 			System.out.println("go to client side and send me a message");
 
+			
 			inputStream = new DataInputStream(socket.getInputStream());
 			outputStream = new DataOutputStream(socket.getOutputStream());
 
@@ -90,16 +92,22 @@ public class cloudController extends ClientGui {
 						if (e.getActionCommand() == acceptButton.getActionCommand()) {
 
 							try {
-								////
-								// clientTable();
-								// vehicleOwnerTable();
-								// ////
+								
+								
+								
+							
 
-								PrintStream output = new PrintStream(new FileOutputStream("Client Data.txt", true));
+								PrintStream output = new PrintStream(new FileOutputStream("Everyone.txt", true));
 								output.println("**************************************");
 								output.println("CLIENT DATA: ");
-								output.println(inputStream);
-								output.println("**************************************");
+								
+								
+								if (OwnerGui.OwnerGui.isActive()  ) {
+									output.println(OwnerGui.input);
+								}
+								else if(ClientGui.isActive()){	
+									output.println(input);
+								}
 
 								outputStream.writeUTF("DATA ACCEPTED");
 								JOptionPane.showMessageDialog(null, "Users data has been accepted!");

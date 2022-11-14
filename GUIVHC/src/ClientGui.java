@@ -4,7 +4,9 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
+import java.io.PrintStream;
 import java.io.Writer;
 import java.text.SimpleDateFormat;
 import java.awt.event.ActionEvent;
@@ -25,8 +27,8 @@ import java.util.Map;
 import java.util.PriorityQueue;
 
 public class ClientGui {
-
-	JFrame ClientGui;
+public static String input;
+	static JFrame ClientGui;
 	private final Action action = new SwingAction();
 	public  JTextField clientIDBox;
 	public JTextField jobDurBox;
@@ -40,6 +42,7 @@ public class ClientGui {
 	String y;
 	String yy;
 	public static ArrayList<String> stringID = new ArrayList<String>();
+	
 
 	 
 	/**
@@ -179,13 +182,21 @@ public class ClientGui {
 			} else {
 				try {
 					
-					FileWriter Writer = new FileWriter("ClientInfo.txt", true);
+					PrintStream output = new PrintStream(new FileOutputStream("ClientInfoTest.txt", true));
+					
+					
 					String timeStamp = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss ").format(new java.util.Date());
-					String input = "Time: " + timeStamp + "Client ID:" + clientIDBox.getText() + " Job Duration:"
+					 input = "Time: " + timeStamp + "Client ID:" + clientIDBox.getText() + " Job Duration:"
 							+ jobDurBox.getText() + " Deadline:" + dealineBox.getText() + " All Duration Times:" +arrayMethod() + " All Client IDs:" + arrayMethodID();
 
-					Writer.write(input + "\n");
-					Writer.close();
+					 
+					 output.println(input);
+						output.flush();
+						output.close();
+						
+				//	 FileWriter Writer = new FileWriter("ClientInfo.txt", true);
+					//Writer.write(input + "\n");
+					//Writer.close();
 					JOptionPane.showMessageDialog(null, "Success, written to file");
 					clientIDBox.setText("");
 					jobDurBox.setText("");

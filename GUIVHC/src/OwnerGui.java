@@ -15,7 +15,9 @@ import javax.swing.AbstractAction;
 import java.awt.event.ActionEvent;
 import javax.swing.Action;
 import java.awt.event.ActionListener;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
+import java.io.PrintStream;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.time.Instant;
@@ -24,8 +26,8 @@ import java.util.Date;
 import java.util.TimeZone;
 
 public class OwnerGui {
-
-	JFrame OwnerGui;
+public static String input;
+	public static JFrame OwnerGui;
 	private JTextField OwnerIdTextField;
 	private JTextField VeichleMakeTextField;
 	private JTextField VeichleModelTextField;
@@ -175,12 +177,18 @@ public class OwnerGui {
 
 			else {
 				try {
-
+					PrintStream output = new PrintStream(new FileOutputStream("OwnerInfoTest.txt", true));
+					
+					
 					String timeStamp = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss ").format(new java.util.Date());
-					String input = "Time: " + timeStamp + "Owner: ID:" + OwnerIdTextField.getText() + " Make:"
+					 input = "Time: " + timeStamp + "Owner: ID:" + OwnerIdTextField.getText() + " Make:"
 							+ VeichleMakeTextField.getText() + " Model:" + VeichleModelTextField.getText() + " Year:"
 							+ VeichleYearTextField.getText() + " Residency Time:" + resTimeLabel.getText();
 
+					output.println(input);
+					output.flush();
+					output.close();
+					
 					FileWriter Writer = new FileWriter("OwnerInfo.txt", true);
 					Writer.write(input + "\n");
 					Writer.close();
