@@ -116,12 +116,12 @@ public class cloudController extends ClientGui {
 								} catch (NumberFormatException w) {
 									dummy2 = ""; // error handling
 								}
-
+								
+								textFieldFName.setText("");
+								textFieldLName.setText("");
 								clientIDBox.setText("");
 								jobDurBox.setText("");
 								dealineBox.setText("");
-								textFieldFName.setText("");
-								textFieldLName.setText("");
 
 								AcceptedClientID.add(dummy2);
 

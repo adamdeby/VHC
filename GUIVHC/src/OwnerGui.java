@@ -174,10 +174,10 @@ public static String input = "";
 
 				JOptionPane.showMessageDialog(null, "Error. Please enter all the info");
 			}
-
+			
 			else {
 				try {
-					PrintStream output = new PrintStream(new FileOutputStream("OwnerInfoTest.txt", true));
+					//PrintStream output = new PrintStream(new FileOutputStream("OwnerInfoTest.txt", true));
 					
 					
 					String timeStamp = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss ").format(new java.util.Date());
@@ -185,13 +185,13 @@ public static String input = "";
 							+ VeichleMakeTextField.getText() + " Model:" + VeichleModelTextField.getText() + " Year:"
 							+ VeichleYearTextField.getText() + " Residency Time:" + resTimeLabel.getText();
 
-					output.println(input);
-					output.flush();
-					output.close();
+				//	output.println(input);
+				//	output.flush();
+					//output.close();
 					
-					FileWriter Writer = new FileWriter("OwnerInfo.txt", true);
-					Writer.write(input + "\n");
-					Writer.close();
+				//	FileWriter Writer = new FileWriter("OwnerInfo.txt", true);
+					//Writer.write(input + "\n");
+				//	Writer.close();
 					JOptionPane.showMessageDialog(null, "Information sent to server. Waiting for approval.");
 					OwnerIdTextField.setText("");
 					VeichleMakeTextField.setText("");

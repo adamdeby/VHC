@@ -90,11 +90,13 @@ public static String input = "";
 		//
 		BackToMain.setBounds(252, 375, 150, 53);
 		ClientGui.getContentPane().add(BackToMain);
+		
 
 		JLabel clientIDtxt = new JLabel("Client ID:");
 		clientIDtxt.setFont(new Font("Yu Gothic", Font.BOLD, 18));
 		clientIDtxt.setBounds(268, 161, 225, 40);
 		ClientGui.getContentPane().add(clientIDtxt);
+		
 
 		JLabel jobDurTxt = new JLabel("Job Duration:");
 		jobDurTxt.setFont(new Font("Yu Gothic", Font.BOLD, 18));
@@ -187,7 +189,7 @@ public static String input = "";
 					
 					
 					String timeStamp = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss ").format(new java.util.Date());
-					 input = "Time: " + timeStamp + "Client ID:" + clientIDBox.getText() + " Job Duration:"
+					 input = "Time: " + timeStamp + " Client First Name:" + textFieldFName.getText() + " Client Last Name:" + textFieldLName.getText() +  " Client ID:" + clientIDBox.getText() + " Job Duration:"
 							+ jobDurBox.getText() + " Deadline:" + dealineBox.getText() ;
 
 					 
