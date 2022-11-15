@@ -17,6 +17,7 @@ public class networkClient {
 		String dataIn = "";
 		String dataOut = "";
 		Scanner input;
+		String x = "";
 		
 		try 
 		
@@ -28,13 +29,18 @@ public class networkClient {
 			
 			inputStream = new DataInputStream(socket.getInputStream());
 			outputStream = new DataOutputStream(socket.getOutputStream());
-			System.out.println("Enter Yes if you have data you want to send to the server.");
-			System.out.println("Otherwise type exit.");
-			input = new Scanner(System.in);
-			dataOut = input.nextLine();
-			outputStream.writeUTF(dataOut);
-			
-			while(true)
+			//System.out.println("Enter Yes if you have data you want to send to the server.");
+			//System.out.println("Otherwise type exit.");
+		input = new Scanner(System.in);
+		dataOut = input.nextLine();
+		
+			if(dataIn=="")
+			{
+				outputStream.writeUTF(dataIn);
+				socket.close();
+				System.exit(1);
+			}
+		/*	while(true)
 			{
 				if(dataIn.equals("exit")) 
 				{
@@ -52,7 +58,7 @@ public class networkClient {
 				outputStream.writeUTF(dataOut);
 			}
 			
-			
+			*/
 	}
 		catch(Exception e) 
 		{

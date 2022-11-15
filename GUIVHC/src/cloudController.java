@@ -50,7 +50,7 @@ public class cloudController extends ClientGui {
 
 	public static void main(String[] args) {
 
-		String dataIn = "";
+		String dataIn="";
 		try {
 
 			System.out.println("----------$$$ This is server side $$$--------");
@@ -183,28 +183,32 @@ public class cloudController extends ClientGui {
 				}
 
 			}
-			//////
+			
 
-			while (true) {
-				if (dataIn.equals("exit") == true) {
-					System.exit(1);
-				}
-
-				dataIn = inputStream.readUTF();
-				System.out.println("Data received from client: " + "\"" + dataIn + "\"");
-
+			if(dataIn=="")
+			{
+				outputStream.writeUTF(dataIn);
+				socket.close();
+				System.exit(1);
+			}
+			
+//
+//				dataIn = inputStream.readUTF();
+//				System.out.println("Data received from client: " + "\"" + dataIn + "\"");
+//
 				MainMenu mFrame = new MainMenu();
-
+//
 				mFrame.Mainframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 				mFrame.Mainframe.setVisible(true);
-
-				JFrame frame = new acceptRejectWindow();
+//
+			JFrame frame = new acceptRejectWindow();
 				frame.setTitle("Server");
 				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				frame.setVisible(true);
-
-			}
-		} catch (Exception e) {
+			frame.setVisible(true);
+//
+//			}
+		}
+		catch (Exception e) {
 
 			e.printStackTrace();
 		}
