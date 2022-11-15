@@ -88,6 +88,7 @@ public class MainMenu extends CloudControllerGui{
 	 */
 	private void initialize() {
 		Mainframe = new JFrame();
+		Mainframe.setTitle("Vehicular Cloud Main Menu");
 		Mainframe.getContentPane().setBackground(new Color(0, 191, 255));
 		Mainframe.setBounds(100, 100, 940, 704);
 		Mainframe.setResizable(false);
