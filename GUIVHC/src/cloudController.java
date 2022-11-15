@@ -104,6 +104,8 @@ public class cloudController extends ClientGui {
 
 								output.println(input);
 
+							
+								
 								
 								if(!OwnerGui.OwnerGui.isVisible()) {
 								try {
@@ -118,6 +120,7 @@ public class cloudController extends ClientGui {
 								} catch (NumberFormatException w) {
 									dummy2 = ""; // error handling
 								}
+								AcceptedClientID.add(dummy2);
 								}
 								
 								textFieldFName.setText("");
@@ -132,7 +135,7 @@ public class cloudController extends ClientGui {
 								OwnerGui.VeichleYearTextField.setText("");
 								OwnerGui.resTimeLabel.setText("");
 								
-								AcceptedClientID.add(dummy2);
+								
 
 								OwnerGui.input = "";
 								input = "";

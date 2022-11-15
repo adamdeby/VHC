@@ -1,12 +1,8 @@
 **************************************
 CLIENT DATA: 
 
-Time: 11/14/2022 00:42:27 Client ID:1 Job Duration:1 Deadline:1
+Time: 11/14/2022 23:14:10 Client Name: 11 1  Client ID:1 Job Duration:1 Deadline:1
 **************************************
 CLIENT DATA: 
+Time: 11/14/2022 23:14:17 Owner: ID:1 Make:1 Model:1 Year:1 Residency Time:1
 
-Time: 11/14/2022 00:42:33 Client ID:2 Job Duration:2 Deadline:2
-**************************************
-CLIENT DATA: 
-
-Time: 11/14/2022 18:45:46  Client First Name:1 Client Last Name:1 Client ID:1 Job Duration:1 Deadline:1

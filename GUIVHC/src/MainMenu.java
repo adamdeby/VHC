@@ -194,6 +194,9 @@ public class MainMenu extends CloudControllerGui{
 		public void actionPerformed(ActionEvent e) { 
 			ClientGui openClientGui = new ClientGui();
 			openClientGui.ClientGui.setVisible(true);
+			OwnerGui openOwnerGui = new OwnerGui();
+			openOwnerGui.OwnerGui.setVisible(false);
+			
 			Mainframe.dispose();		
 			
 

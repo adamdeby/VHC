@@ -183,15 +183,15 @@ public static String input = "";
 			} else {
 				try {
 					
-				//	PrintStream output = new PrintStream(new FileOutputStream("ClientInfoTest.txt", true));
+					//PrintStream output = new PrintStream(new FileOutputStream("ClientInfoTest.txt", true));
 					
 					
 					String timeStamp = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss ").format(new java.util.Date());
-					 input = "Time: " + timeStamp + "Client ID:" + clientIDBox.getText() + " Job Duration:"
+					 input = "Time: " + timeStamp + "Client:  Name: "+textFieldFName.getText() + " "+textFieldLName.getText() +"  Client ID:" + clientIDBox.getText() + " Job Duration:"
 							+ jobDurBox.getText() + " Deadline:" + dealineBox.getText() ;
 
 					 
-				//	 output.println(input);
+				// output.println(input);
 					//	output.flush();
 					//	output.close();
 						
