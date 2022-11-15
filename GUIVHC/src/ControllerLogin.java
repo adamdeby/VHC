@@ -17,11 +17,12 @@ import javax.swing.Action;
 public class ControllerLogin extends CloudControllerGui{
 
 	 JFrame loginFrame;
+	 
+
 	private JTextField Username;
 	private JPasswordField passwordField;
 	private final Action action = new SwingAction();
 
-	
 	
 	
 	
@@ -53,6 +54,7 @@ public class ControllerLogin extends CloudControllerGui{
 	 */
 	private void initialize() {
 		loginFrame = new JFrame();
+		loginFrame.setTitle("Controller Login Page:");
 		loginFrame.setBounds(100, 100, 940, 704);
 		loginFrame.getContentPane().setBackground(new Color(0, 191, 255));
 		loginFrame.getContentPane().setLayout(null);

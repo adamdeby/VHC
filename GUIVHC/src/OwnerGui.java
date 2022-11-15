@@ -64,6 +64,7 @@ public static String input = "";
 	 */
 	private void initialize() {
 		OwnerGui = new JFrame();
+		OwnerGui.setTitle("Owner Registration Page:");
 		OwnerGui.setBounds(100, 100, 940, 704);
 		OwnerGui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		OwnerGui.getContentPane().setBackground(new Color(0, 191, 255));
@@ -86,12 +87,12 @@ public static String input = "";
 		VeichleMakeLabel.setBounds(251, 211, 243, 29);
 		OwnerGui.getContentPane().add(VeichleMakeLabel);
 
-		JLabel VeichleYearLabel = new JLabel("Veichle Year: ");
+		JLabel VeichleYearLabel = new JLabel("Vehicle Year: ");
 		VeichleYearLabel.setFont(new Font("Yu Gothic", Font.BOLD, 18));
 		VeichleYearLabel.setBounds(251, 291, 243, 29);
 		OwnerGui.getContentPane().add(VeichleYearLabel);
 
-		JLabel VeichleModelLabel = new JLabel("Veichle Model:");
+		JLabel VeichleModelLabel = new JLabel("Vehicle Model:");
 		VeichleModelLabel.setFont(new Font("Yu Gothic", Font.BOLD, 18));
 		VeichleModelLabel.setBounds(251, 251, 243, 29);
 		OwnerGui.getContentPane().add(VeichleModelLabel);

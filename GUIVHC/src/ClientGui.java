@@ -16,6 +16,8 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 import java.awt.Font;
+import java.awt.Frame;
+
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
@@ -65,6 +67,7 @@ public static String input = "";
 	 * Create the application.
 	 */
 	public ClientGui() {
+		
 		initialize();
 	}
 
@@ -73,6 +76,7 @@ public static String input = "";
 	 */
 	private void initialize() {
 		ClientGui = new JFrame();
+		ClientGui.setTitle("Client Registration Page:");
 		ClientGui.getContentPane().setBackground(new Color(0, 191, 255));
 		ClientGui.setResizable(false);
 		ClientGui.getContentPane().setLayout(null);
@@ -155,6 +159,7 @@ public static String input = "";
 		ClientGui.getContentPane().add(firstNameLabel);
 		ClientGui.setBounds(100, 100, 940, 704);
 		ClientGui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
 	}
 
 	private class SwingAction extends AbstractAction {
@@ -174,6 +179,7 @@ public static String input = "";
 		}
 
 		public void actionPerformed(ActionEvent e) {
+			
 
 			if (clientIDBox.getText().trim().isEmpty() || jobDurBox.getText().trim().isEmpty()
 					|| dealineBox.getText().trim().isEmpty() || textFieldLName.getText().trim().isEmpty()
