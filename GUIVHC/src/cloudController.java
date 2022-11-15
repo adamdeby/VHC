@@ -50,7 +50,7 @@ public class cloudController extends ClientGui {
 
 	public static void main(String[] args) {
 
-		String dataIn="";
+		String dataIn = "";
 		try {
 
 			System.out.println("----------$$$ This is server side $$$--------");
@@ -104,6 +104,8 @@ public class cloudController extends ClientGui {
 
 								output.println(input);
 
+								
+								if(!OwnerGui.OwnerGui.isVisible()) {
 								try {
 									dummy = Integer.parseInt(jobDurBox.getText());
 								} catch (NumberFormatException w) {
@@ -116,6 +118,7 @@ public class cloudController extends ClientGui {
 								} catch (NumberFormatException w) {
 									dummy2 = ""; // error handling
 								}
+								}
 								
 								textFieldFName.setText("");
 								textFieldLName.setText("");
@@ -123,6 +126,12 @@ public class cloudController extends ClientGui {
 								jobDurBox.setText("");
 								dealineBox.setText("");
 
+								OwnerGui.OwnerIdTextField.setText("");
+								OwnerGui.VeichleMakeTextField.setText("");
+								OwnerGui.VeichleModelTextField.setText("");
+								OwnerGui.VeichleYearTextField.setText("");
+								OwnerGui.resTimeLabel.setText("");
+								
 								AcceptedClientID.add(dummy2);
 
 								OwnerGui.input = "";
@@ -151,6 +160,12 @@ public class cloudController extends ClientGui {
 								dealineBox.setText("");
 								textFieldFName.setText("");
 								textFieldLName.setText("");
+								
+								OwnerGui.OwnerIdTextField.setText("");
+								OwnerGui.VeichleMakeTextField.setText("");
+								OwnerGui.VeichleModelTextField.setText("");
+								OwnerGui.VeichleYearTextField.setText("");
+								OwnerGui.resTimeLabel.setText("");
 
 								outputStream.writeUTF("DATA REJECTED");
 								JOptionPane.showMessageDialog(null, "Users data has been rejected!");
@@ -183,32 +198,22 @@ public class cloudController extends ClientGui {
 				}
 
 			}
-			
+	
 
-			if(dataIn=="")
-			{
-				outputStream.writeUTF(dataIn);
-				socket.close();
-				System.exit(1);
-			}
-			
-//
-//				dataIn = inputStream.readUTF();
-//				System.out.println("Data received from client: " + "\"" + dataIn + "\"");
-//
+
+				
 				MainMenu mFrame = new MainMenu();
-//
-				mFrame.Mainframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+		mFrame.Mainframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 				mFrame.Mainframe.setVisible(true);
-//
-			JFrame frame = new acceptRejectWindow();
+
+				JFrame frame = new acceptRejectWindow();
 				frame.setTitle("Server");
-				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-			frame.setVisible(true);
-//
-//			}
-		}
-		catch (Exception e) {
+			frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+				frame.setVisible(true);
+
+			
+		} catch (Exception e) {
 
 			e.printStackTrace();
 		}

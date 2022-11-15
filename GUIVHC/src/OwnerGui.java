@@ -28,13 +28,13 @@ import java.util.TimeZone;
 public class OwnerGui {
 public static String input = "";
 	public static JFrame OwnerGui;
-	private JTextField OwnerIdTextField;
-	private JTextField VeichleMakeTextField;
-	private JTextField VeichleModelTextField;
-	private JTextField VeichleYearTextField;
-	private JTextField resTimeLabel;
-	private final Action action = new SwingAction();
-	private final Action action_1 = new SwingAction_1();
+	public static JTextField OwnerIdTextField;
+	public static JTextField VeichleMakeTextField;
+	public static JTextField VeichleModelTextField;
+	public static JTextField VeichleYearTextField;
+	public static JTextField resTimeLabel;
+	public final Action action = new SwingAction();
+	public final Action action_1 = new SwingAction_1();
 
 	/**
 	 * Launch the application.
@@ -174,10 +174,10 @@ public static String input = "";
 
 				JOptionPane.showMessageDialog(null, "Error. Please enter all the info");
 			}
-			
+
 			else {
 				try {
-					//PrintStream output = new PrintStream(new FileOutputStream("OwnerInfoTest.txt", true));
+					PrintStream output = new PrintStream(new FileOutputStream("OwnerInfoTest.txt", true));
 					
 					
 					String timeStamp = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss ").format(new java.util.Date());
@@ -185,19 +185,15 @@ public static String input = "";
 							+ VeichleMakeTextField.getText() + " Model:" + VeichleModelTextField.getText() + " Year:"
 							+ VeichleYearTextField.getText() + " Residency Time:" + resTimeLabel.getText();
 
-				//	output.println(input);
-				//	output.flush();
-					//output.close();
+					output.println(input);
+					output.flush();
+					output.close();
 					
-				//	FileWriter Writer = new FileWriter("OwnerInfo.txt", true);
-					//Writer.write(input + "\n");
-				//	Writer.close();
+					FileWriter Writer = new FileWriter("OwnerInfo.txt", true);
+					Writer.write(input + "\n");
+					Writer.close();
 					JOptionPane.showMessageDialog(null, "Information sent to server. Waiting for approval.");
-					OwnerIdTextField.setText("");
-					VeichleMakeTextField.setText("");
-					VeichleModelTextField.setText("");
-					VeichleYearTextField.setText("");
-					resTimeLabel.setText("");
+					
 				} catch (Exception a) {
 					JOptionPane.showMessageDialog(null, "Error :(");
 				}
