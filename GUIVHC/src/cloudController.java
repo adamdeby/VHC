@@ -42,6 +42,9 @@ public class cloudController extends ClientGui {
 		}
 		return resultArray;
 	}
+	
+	
+
 
 	static ServerSocket serverSocket;
 	static Socket socket;
@@ -60,7 +63,7 @@ public class cloudController extends ClientGui {
 			// sever accepts connection request from client
 			socket = serverSocket.accept();
 			System.out.println("client is connected!");
-			System.out.println("go to client side and send me a message");
+			//System.out.println("go to client side and send me a message");
 
 			inputStream = new DataInputStream(socket.getInputStream());
 			outputStream = new DataOutputStream(socket.getOutputStream());

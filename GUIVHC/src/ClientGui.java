@@ -100,12 +100,12 @@ public static String input = "";
 		clientIDtxt.setBounds(268, 161, 225, 40);
 		ClientGui.getContentPane().add(clientIDtxt);
 
-		JLabel jobDurTxt = new JLabel("Job Duration:");
+		JLabel jobDurTxt = new JLabel("Job Duration (Hours):");
 		jobDurTxt.setFont(new Font("Yu Gothic", Font.BOLD, 18));
 		jobDurTxt.setBounds(268, 212, 225, 40);
 		ClientGui.getContentPane().add(jobDurTxt);
 
-		JLabel jobDeadlineTxt = new JLabel("Job Deadline:");
+		JLabel jobDeadlineTxt = new JLabel("Job Deadline (Hours):");
 		jobDeadlineTxt.setFont(new Font("Yu Gothic UI", Font.BOLD, 18));
 		jobDeadlineTxt.setBounds(268, 263, 225, 40);
 		ClientGui.getContentPane().add(jobDeadlineTxt);

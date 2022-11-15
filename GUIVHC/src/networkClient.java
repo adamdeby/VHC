@@ -15,7 +15,6 @@ public class networkClient {
 
 	public static void main(String[] args) throws IOException {
 		
-		String dataIn = "";
 		String dataOut = "";
 		Scanner input;
 		
@@ -29,8 +28,8 @@ public class networkClient {
 			
 			inputStream = new DataInputStream(socket.getInputStream());
 			outputStream = new DataOutputStream(socket.getOutputStream());
-			System.out.println("Enter Yes if you have data you want to send to the server.");
-			System.out.println("Otherwise type exit.");
+	
+			
 			input = new Scanner(System.in);
 			dataOut = input.nextLine();
 			outputStream.writeUTF(dataOut);
@@ -38,8 +37,9 @@ public class networkClient {
 	}
 		catch(Exception e) 
 		{
+			System.exit(1);
+			socket.close();
 			e.printStackTrace();
 		}
-		socket.close();
 }
 }

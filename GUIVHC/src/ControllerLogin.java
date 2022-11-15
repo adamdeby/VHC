@@ -61,7 +61,7 @@ public class ControllerLogin extends CloudControllerGui{
 		
 		JLabel lblControllerLogin = new JLabel("Controller Login");
 		lblControllerLogin.setFont(new Font("Trebuchet MS", Font.BOLD, 60));
-		lblControllerLogin.setBounds(203, 60, 462, 67);
+		lblControllerLogin.setBounds(212, 59, 462, 67);
 		loginFrame.getContentPane().add(lblControllerLogin);
 		
 		JLabel lblNewLabel = new JLabel("Password:");

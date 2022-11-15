@@ -113,9 +113,9 @@ public class CloudControllerGui extends cloudController {
 		UserLabel.setBounds(75, 90, 152, 30);
 		RTRframe.getContentPane().add(UserLabel);
 		
-		JobDurationLabel = new JLabel("Job Duration (Completed Time):");
+		JobDurationLabel = new JLabel("Job Duration (Completed Time in hours):");
 		JobDurationLabel.setFont(new Font("Yu Gothic", Font.BOLD, 17));
-		JobDurationLabel.setBounds(75, 304, 304, 30);
+		JobDurationLabel.setBounds(75, 304, 351, 30);
 		RTRframe.getContentPane().add(JobDurationLabel);
 		
 		JLabel originalTextBox = new JLabel("Original Time:");

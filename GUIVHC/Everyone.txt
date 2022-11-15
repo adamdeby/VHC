@@ -1,20 +1,16 @@
 **************************************
 CLIENT DATA: 
-
-Time: 11/14/2022 23:14:10 Client Name: 11 1  Client ID:1 Job Duration:1 Deadline:1
-**************************************
-CLIENT DATA: 
-Time: 11/14/2022 23:14:17 Owner: ID:1 Make:1 Model:1 Year:1 Residency Time:1
+Time: 11/15/2022 17:37:16 Owner: ID:1234 Make:Bmw Model:m440i Year:2021 Residency Time:10
 
 **************************************
 CLIENT DATA: 
+Time: 11/15/2022 17:38:08 Owner: ID:Hello Make:hello Model:hello Year:123 Residency Time:213
 
-Time: 11/14/2022 23:21:41 Client:  Name: 1 1  Client ID:1 Job Duration:1 Deadline:1
-**************************************
-CLIENT DATA: 
-Time: 11/14/2022 23:22:08 Owner: ID:2 Make:2 Model:2 Year:2 Residency Time:2
-Time: 11/14/2022 23:21:50 Client:  Name: 3 3  Client ID:3 Job Duration:3 Deadline:3
 **************************************
 CLIENT DATA: 
 
-Time: 11/14/2022 23:22:22 Client:  Name: 4 4  Client ID:4 Job Duration:4 Deadline:4
+Time: 11/15/2022 17:38:34 Client:  Name: Hey hey  Client ID:hey Job Duration:123 Deadline:123
+**************************************
+CLIENT DATA: 
+
+Time: 11/15/2022 17:39:13 Client:  Name: Rob kOWSKI  Client ID:123432 Job Duration:80 Deadline:91

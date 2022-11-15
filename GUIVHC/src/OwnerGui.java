@@ -97,7 +97,7 @@ public static String input = "";
 		VeichleModelLabel.setBounds(251, 251, 243, 29);
 		OwnerGui.getContentPane().add(VeichleModelLabel);
 
-		JLabel ResidencyTimeTextField = new JLabel("Residency Time:");
+		JLabel ResidencyTimeTextField = new JLabel("Residency Time (Hours):");
 		ResidencyTimeTextField.setFont(new Font("Yu Gothic", Font.BOLD, 18));
 		ResidencyTimeTextField.setBounds(251, 331, 243, 34);
 		OwnerGui.getContentPane().add(ResidencyTimeTextField);

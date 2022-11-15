@@ -149,7 +149,7 @@ public class MainMenu extends CloudControllerGui{
 		panel.setLayout(null);
 
 		JLabel cloudIcon = new JLabel("");
-		cloudIcon.setBounds(10, 23, 408, 261);
+		cloudIcon.setBounds(14, 0, 408, 261);
 		panel.add(cloudIcon);
 		ImageIcon cloud = new ImageIcon(".//res//cloud.png");
 		cloudIcon.setIcon(cloud);
@@ -159,7 +159,7 @@ public class MainMenu extends CloudControllerGui{
 		panel.add(lblNewLabel);
 
 		JLabel cloudCar = new JLabel("");
-		cloudCar.setBounds(90, 266, 350, 288);
+		cloudCar.setBounds(90, 352, 350, 288);
 		panel.add(cloudCar);
 		ImageIcon cloudCarIcon = new ImageIcon(".//res//cloudCar.png");
 		cloudCar.setIcon(cloudCarIcon);
@@ -169,6 +169,18 @@ public class MainMenu extends CloudControllerGui{
 		Clock.setHorizontalAlignment(SwingConstants.CENTER);
 		Clock.setBounds(72, 608, 350, 32);
 		panel.add(Clock);
+		
+		JLabel lblNewLabel_1 = new JLabel("Vehicular Cloud");
+		lblNewLabel_1.setFont(new Font("Yu Gothic", Font.BOLD, 25));
+		lblNewLabel_1.setBounds(136, 272, 199, 55);
+		panel.add(lblNewLabel_1);
+		
+		JLabel lblNewLabel_2 = new JLabel("Real Time System");
+		lblNewLabel_2.setFont(new Font("Yu Gothic", Font.BOLD, 25));
+		lblNewLabel_2.setBounds(123, 319, 232, 55);
+		panel.add(lblNewLabel_2);
+		
+		
 	}
 
 	private class SwingAction extends AbstractAction {
