@@ -34,31 +34,7 @@ public class networkClient {
 			input = new Scanner(System.in);
 			dataOut = input.nextLine();
 			outputStream.writeUTF(dataOut);
-			
-			/*
-			while(true)
-			{
-				if(dataIn.equals("exit")) 
-				{
-					socket.close();
-					System.out.println("GOODBYE");
-					System.exit(1);
-				}
-				dataIn = inputStream.readUTF();
-				System.out.println("message received from server: " + "\"" + dataIn + "\"");
 				
-				System.out.println("Enter Yes if you have data you want to send to the server.");
-				System.out.println("Otherwise type exit.");
-				input = new Scanner(System.in);
-				dataOut = input.nextLine();
-				outputStream.writeUTF(dataOut);
-			}
-			
-			*/
-			
-			
-			
-			
 	}
 		catch(Exception e) 
 		{
