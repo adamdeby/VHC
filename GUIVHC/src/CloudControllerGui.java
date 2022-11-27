@@ -36,6 +36,8 @@ public class CloudControllerGui extends cloudController {
 	public JTable table;
 	public static JTextField textField;
 	ArrayList<Integer> sumArray = new ArrayList<Integer>() ;
+	private JButton Refresh;
+	private final Action action_1 = new SwingAction_1();
 	/**
 	 * Launch the application.
 	 */
@@ -123,6 +125,49 @@ public class CloudControllerGui extends cloudController {
 		originalTextBox.setBounds(75, 190, 152, 30);
 		RTRframe.getContentPane().add(originalTextBox);
 		
+		JButton acceptClient = new JButton("Accept Client");
+		acceptClient.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		acceptClient.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		acceptClient.setBounds(574, 504, 112, 39);
+		RTRframe.getContentPane().add(acceptClient);
+		
+		JButton acceptOwner = new JButton("Accept Owner");
+		acceptOwner.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		acceptOwner.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		acceptOwner.setBounds(687, 504, 101, 39);
+		RTRframe.getContentPane().add(acceptOwner);
+		
+		JButton reject = new JButton("Reject");
+		reject.setBounds(786, 504, 101, 39);
+		RTRframe.getContentPane().add(reject);
+		
+		Refresh = new JButton("Refresh");
+		Refresh.setFont(new Font("Tahoma", Font.BOLD, 15));
+		Refresh.setAction(action_1);
+		Refresh.addActionListener(new ActionListener() {
+			//refresh button will refresh the GUI 
+			public void actionPerformed(ActionEvent e) {
+				
+				
+				
+				RTRframe.invalidate();
+				RTRframe.validate();
+				RTRframe.repaint();
+				
+				
+				
+				
+			}
+		});
+		Refresh.setBounds(763, 11, 151, 58);
+		RTRframe.getContentPane().add(Refresh);
+		
 
 	}
 
@@ -134,6 +179,14 @@ public class CloudControllerGui extends cloudController {
 
 		public void actionPerformed(ActionEvent e) {
 
+		}
+	}
+	private class SwingAction_1 extends AbstractAction {
+		public SwingAction_1() {
+			putValue(NAME, "Refresh");
+			putValue(SHORT_DESCRIPTION, "Some short description");
+		}
+		public void actionPerformed(ActionEvent e) {
 		}
 	}
 }
