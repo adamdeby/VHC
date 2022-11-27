@@ -125,7 +125,7 @@ public class ControllerLogin extends CloudControllerGui{
 				loginFrame.setVisible(false);
 			}
 		});
-		btnNewButton.setBounds(719, 581, 129, 39);
+		btnNewButton.setBounds(212, 575, 129, 39);
 		loginFrame.getContentPane().add(btnNewButton);
 		loginFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}

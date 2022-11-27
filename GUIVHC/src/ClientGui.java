@@ -45,7 +45,11 @@ public static String input = "";
 	String yy;
 	public static ArrayList<String> stringID = new ArrayList<String>();
 	
-
+	 public static String tempFName;
+	 public static String tempLName;
+	 public static String tempID;
+	 public static String tempJobDur;
+	 public static String tempJobDead;
 	 
 	/**
 	 * Launch the application.
@@ -188,6 +192,14 @@ public static String input = "";
 				JOptionPane.showMessageDialog(null, "Error. Please enter all the info");
 			} else {
 				try {
+					
+					tempFName =  textFieldFName.getText();
+					tempLName = textFieldLName.getText();
+					tempID = clientIDBox.getText();
+					tempJobDur = jobDurBox.getText();
+					tempJobDead = dealineBox.getText();
+					
+				
 					
 					//PrintStream output = new PrintStream(new FileOutputStream("ClientInfoTest.txt", true));
 					
