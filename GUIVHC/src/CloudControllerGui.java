@@ -135,11 +135,11 @@ public class CloudControllerGui extends cloudController {
 
 		acceptClient.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (e.getActionCommand() == acceptClient.getActionCommand()) {
+				if (e.getActionCommand() == acceptClient.getActionCommand() && tempFName!="") {
 
 					try {
 
-						PrintStream output = new PrintStream(new FileOutputStream("Everyone.txt", true));
+						PrintStream output = new PrintStream(new FileOutputStream("ClientData.txt", true));
 						output.println("**************************************");
 						output.println("CLIENT DATA: ");
 
@@ -156,11 +156,11 @@ public class CloudControllerGui extends cloudController {
 
 						AcceptedClientID.add(dummy2);
 
-						textFieldFName.setText("");
-						textFieldLName.setText("");
-						clientIDBox.setText("");
-						jobDurBox.setText("");
-						dealineBox.setText("");
+						tempFName =  "";
+						tempLName = "";
+						tempID = "";
+						tempJobDur = "";
+						tempJobDead = "";
 
 					
 						input = "";
@@ -175,9 +175,12 @@ public class CloudControllerGui extends cloudController {
 
 						output.close();
 					} catch (Exception a) {
-
+						
 						a.printStackTrace();
 					}
+				}
+				else {
+					JOptionPane.showMessageDialog(null, "No Information to Accept!");
 				}
 
 			}
@@ -193,13 +196,61 @@ public class CloudControllerGui extends cloudController {
 		acceptOwner.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		acceptOwner.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				
+			
+				
+				
+				
+				
+				
+		
 			}
 		});
 		acceptOwner.setBounds(687, 504, 101, 39);
 		RTRframe.getContentPane().add(acceptOwner);
 
+		
+		
 		// reject
 		JButton reject = new JButton("Reject");
+		reject.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		reject.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (e.getActionCommand() == reject.getActionCommand()) {
+					try {
+						clientIDBox.setText("");
+						jobDurBox.setText("");
+						dealineBox.setText("");
+						textFieldFName.setText("");
+						textFieldLName.setText("");
+						
+						OwnerGui.OwnerIdTextField.setText("");
+						OwnerGui.VeichleMakeTextField.setText("");
+						OwnerGui.VeichleModelTextField.setText("");
+						OwnerGui.VeichleYearTextField.setText("");
+						OwnerGui.resTimeLabel.setText("");
+
+						outputStream.writeUTF("DATA REJECTED");
+						JOptionPane.showMessageDialog(null, "Users data has been rejected!");
+
+					} catch (Exception ex) {
+						JOptionPane.showMessageDialog(null, ex);
+					}
+					{
+
+					}
+				}
+				
+			
+				
+				
+				
+				
+				
+		
+			}
+		});
 		reject.setBounds(786, 504, 101, 39);
 		RTRframe.getContentPane().add(reject);
 

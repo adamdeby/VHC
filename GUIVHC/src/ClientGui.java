@@ -209,13 +209,12 @@ public static String input = "";
 							+ jobDurBox.getText() + " Deadline:" + dealineBox.getText() ;
 
 					 
-				// output.println(input);
-					//	output.flush();
-					//	output.close();
+					 clientIDBox.setText("");
+						jobDurBox.setText("");
+						dealineBox.setText("");
+						textFieldFName.setText("");
+						textFieldLName.setText("");
 						
-				//	 FileWriter Writer = new FileWriter("ClientInfo.txt", true);
-					//Writer.write(input + "\n");
-					//Writer.close();
 					JOptionPane.showMessageDialog(null, "Information sent to server. Waiting for approval.");
 					
 
