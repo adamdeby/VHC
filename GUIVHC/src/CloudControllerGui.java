@@ -39,7 +39,7 @@ public class CloudControllerGui extends cloudController {
 	private JButton Refresh;
 	private final Action action_1 = new SwingAction_1();
 	/**
-	 * Launch the application.
+	 * Launch the application.//
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
