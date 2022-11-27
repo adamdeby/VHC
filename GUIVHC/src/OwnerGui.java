@@ -26,7 +26,7 @@ import java.util.Date;
 import java.util.TimeZone;
 
 public class OwnerGui {
-public static String input = "";
+	public static String Ownerinput = "";
 	public static JFrame OwnerGui;
 	public static JTextField OwnerIdTextField;
 	public static JTextField VeichleMakeTextField;
@@ -35,6 +35,12 @@ public static String input = "";
 	public static JTextField resTimeLabel;
 	public final Action action = new SwingAction();
 	public final Action action_1 = new SwingAction_1();
+
+	public static String tempOwnerID= "";
+	public static String tempMake;
+	public static String tempModel;
+	public static String tempYear;
+	public static String tempResTime;
 
 	/**
 	 * Launch the application.
@@ -178,23 +184,28 @@ public static String input = "";
 
 			else {
 				try {
-					//PrintStream output = new PrintStream(new FileOutputStream("OwnerInfoTest.txt", true));
-					
-					
+					// PrintStream output = new PrintStream(new
+					// FileOutputStream("OwnerInfoTest.txt", true));
+
+					tempOwnerID = OwnerIdTextField.getText();
+					tempMake = VeichleMakeTextField.getText();
+					tempModel = VeichleModelTextField.getText();
+					tempYear = VeichleYearTextField.getText();
+					tempResTime = resTimeLabel.getText();
+
 					String timeStamp = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss ").format(new java.util.Date());
-					 input = "Time: " + timeStamp + "Owner: ID:" + OwnerIdTextField.getText() + " Make:"
+					Ownerinput = "Time: " + timeStamp + "Owner: ID:" + OwnerIdTextField.getText() + " Make:"
 							+ VeichleMakeTextField.getText() + " Model:" + VeichleModelTextField.getText() + " Year:"
 							+ VeichleYearTextField.getText() + " Residency Time:" + resTimeLabel.getText();
 
-				//	output.println(input);
-				//	output.flush();
-					//output.close();
-					
-				//	FileWriter Writer = new FileWriter("OwnerInfo.txt", true);
-				//	Writer.write(input + "\n");
-				//	Writer.close();
+					OwnerIdTextField.setText("");
+					VeichleMakeTextField.setText("");
+					VeichleModelTextField.setText("");
+					VeichleYearTextField.setText("");
+					resTimeLabel.setText("");
+
 					JOptionPane.showMessageDialog(null, "Information sent to server. Waiting for approval.");
-					
+
 				} catch (Exception a) {
 					JOptionPane.showMessageDialog(null, "Error :(");
 				}

@@ -29,7 +29,7 @@ import java.util.Map;
 import java.util.PriorityQueue;
 
 public class ClientGui {
-public static String input = "";
+public static String Clientinput = "";
 	public  JFrame ClientGui;
 	public final Action action = new SwingAction();
 	public static  JTextField clientIDBox;
@@ -45,7 +45,7 @@ public static String input = "";
 	String yy;
 	public static ArrayList<String> stringID = new ArrayList<String>();
 	
-	 public static String tempFName;
+	 public static String tempFName= "";
 	 public static String tempLName;
 	 public static String tempID;
 	 public static String tempJobDur;
@@ -205,7 +205,7 @@ public static String input = "";
 					
 					
 					String timeStamp = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss ").format(new java.util.Date());
-					 input = "Time: " + timeStamp + "Client:  Name: "+textFieldFName.getText() + " "+textFieldLName.getText() +"  Client ID:" + clientIDBox.getText() + " Job Duration:"
+					Clientinput = "Time: " + timeStamp + "Client:  Name: "+textFieldFName.getText() + " "+textFieldLName.getText() +"  Client ID:" + clientIDBox.getText() + " Job Duration:"
 							+ jobDurBox.getText() + " Deadline:" + dealineBox.getText() ;
 
 					 

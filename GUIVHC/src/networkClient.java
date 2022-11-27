@@ -33,6 +33,8 @@ public class networkClient {
 			input = new Scanner(System.in);
 			dataOut = input.nextLine();
 			outputStream.writeUTF(dataOut);
+			
+			
 				
 	}
 		catch(Exception e) 
@@ -41,5 +43,7 @@ public class networkClient {
 			socket.close();
 			e.printStackTrace();
 		}
+		
+				
 }
 }

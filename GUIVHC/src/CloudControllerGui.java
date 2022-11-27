@@ -143,7 +143,7 @@ public class CloudControllerGui extends cloudController {
 						output.println("**************************************");
 						output.println("CLIENT DATA: ");
 
-						output.println(input);
+						output.println(Clientinput);
 
 						try {
 							dummy = Integer.parseInt(tempJobDur);
@@ -163,7 +163,7 @@ public class CloudControllerGui extends cloudController {
 						tempJobDead = "";
 
 					
-						input = "";
+						Clientinput = "";
 
 						outputStream.writeUTF("DATA ACCEPTED");
 						JOptionPane.showMessageDialog(null, "Users data has been accepted!");
@@ -188,7 +188,7 @@ public class CloudControllerGui extends cloudController {
 		
 		
 		
-		acceptClient.setBounds(574, 504, 112, 39);
+		acceptClient.setBounds(637, 124, 201, 39);
 		RTRframe.getContentPane().add(acceptClient);
 
 		// Owner
@@ -196,18 +196,42 @@ public class CloudControllerGui extends cloudController {
 		acceptOwner.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		acceptOwner.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
-				
-			
-				
-				
-				
-				
-				
-		
+				if (e.getActionCommand() == acceptOwner.getActionCommand() && OwnerGui.tempOwnerID!="") {
+
+					try {
+
+						PrintStream output = new PrintStream(new FileOutputStream("OwnerData.txt", true));
+						output.println("**************************************");
+						output.println("OWNER DATA: ");
+
+						output.println(OwnerGui.Ownerinput);
+
+
+
+					
+						OwnerGui.Ownerinput = "";
+
+						outputStream.writeUTF("DATA ACCEPTED");
+						JOptionPane.showMessageDialog(null, "Users data has been accepted!");
+						
+						OwnerGui.tempOwnerID = "";
+						OwnerGui.tempMake = "";
+						OwnerGui.tempModel = "";
+						OwnerGui.tempYear = "";
+						OwnerGui.tempResTime = "";
+
+						output.close();
+					} catch (Exception a) {
+						
+						a.printStackTrace();
+					}
+				}
+				else {
+					JOptionPane.showMessageDialog(null, "No Information to Accept!");
+				}
 			}
 		});
-		acceptOwner.setBounds(687, 504, 101, 39);
+		acceptOwner.setBounds(637, 206, 201, 39);
 		RTRframe.getContentPane().add(acceptOwner);
 
 		
@@ -219,17 +243,19 @@ public class CloudControllerGui extends cloudController {
 			public void actionPerformed(ActionEvent e) {
 				if (e.getActionCommand() == reject.getActionCommand()) {
 					try {
-						clientIDBox.setText("");
-						jobDurBox.setText("");
-						dealineBox.setText("");
-						textFieldFName.setText("");
-						textFieldLName.setText("");
+						tempFName =  "";
+						tempLName = "";
+						tempID = "";
+						tempJobDur = "";
+						tempJobDead = "";
 						
-						OwnerGui.OwnerIdTextField.setText("");
-						OwnerGui.VeichleMakeTextField.setText("");
-						OwnerGui.VeichleModelTextField.setText("");
-						OwnerGui.VeichleYearTextField.setText("");
-						OwnerGui.resTimeLabel.setText("");
+						OwnerGui.tempOwnerID = "";
+						OwnerGui.tempMake = "";
+						OwnerGui.tempModel = "";
+						OwnerGui.tempYear = "";
+						OwnerGui.tempResTime = "";
+						
+						
 
 						outputStream.writeUTF("DATA REJECTED");
 						JOptionPane.showMessageDialog(null, "Users data has been rejected!");
@@ -251,7 +277,7 @@ public class CloudControllerGui extends cloudController {
 		
 			}
 		});
-		reject.setBounds(786, 504, 101, 39);
+		reject.setBounds(637, 297, 201, 39);
 		RTRframe.getContentPane().add(reject);
 
 	}
