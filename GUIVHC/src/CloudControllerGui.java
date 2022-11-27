@@ -24,7 +24,7 @@ import javax.swing.JTable;
 import javax.swing.JScrollPane;
 
 public class CloudControllerGui extends cloudController {
-	
+	//
 	JFrame RTRframe;
 
 	private final Action action = new SwingAction();
