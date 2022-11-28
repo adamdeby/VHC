@@ -172,7 +172,8 @@ public class CloudControllerGui extends cloudController {
 						int last = sumArray.get(sumArray.size()-1);
 						
 						connection = DriverManager.getConnection(url, username, password);
-						String sql = "INSERT INTO client_data" + "(ClientID , firstName, lastName, Duration, Deadline, compTime)" + "VALUES ('"+tempID+"','"+tempFName+"','"+tempLName+"','"+tempJobDur+"','"+tempJobDead+"','"+last+"')";                                                                                       
+						String sql = "INSERT INTO client_data" + "(ClientID , firstName, lastName, Duration, Deadline, compTime)" + "VALUES ('"+tempID+"','"+tempFName+"','"+tempLName+"','"+tempJobDur+"','"+tempJobDead+"','"+last+"')";  
+						//String sql2 = "INSERT INTO owner_data" + "(OwnerID, vehicleMake, vehicleModel, vehicleYear, ResidencyTime)" + "VALUES ('"+tempID+"','"+tempFName+"','"+tempLName+"','"+tempJobDur+"','"+tempJobDead+"','"+last+"')";
 						Statement statement = connection.createStatement();
 						
 						
@@ -238,6 +239,17 @@ public class CloudControllerGui extends cloudController {
 
 						outputStream.writeUTF("DATA ACCEPTED");
 						JOptionPane.showMessageDialog(null, "Users data has been accepted!");
+						
+						connection = DriverManager.getConnection(url, username, password);
+						String sql2 = "INSERT INTO owner_data" + "(OwnerID, vehicleMake, vehicleModel, vehicleYear, residencyTime)" + "VALUES ('"+OwnerGui.tempOwnerID+"','"+OwnerGui.tempMake+"','"+OwnerGui.tempModel+"','"+OwnerGui.tempYear+"','"+OwnerGui.tempResTime+"')";
+						Statement statement = connection.createStatement();
+						
+						
+						int row = statement.executeUpdate(sql2);
+						//the return value is the indication of success or failure of the query execution
+						if (row > 0)
+							JOptionPane.showMessageDialog(null, "sql success");
+						connection.close();
 						
 						OwnerGui.tempOwnerID = "";
 						OwnerGui.tempMake = "";
