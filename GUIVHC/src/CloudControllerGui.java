@@ -10,6 +10,8 @@ import javax.swing.Action;
 import java.awt.event.ActionListener;
 import java.io.FileOutputStream;
 import java.io.PrintStream;
+import java.sql.DriverManager;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -144,7 +146,13 @@ public class CloudControllerGui extends cloudController {
 						output.println("CLIENT DATA: ");
 
 						output.println(Clientinput);
-
+						
+						
+						
+						
+						
+						
+						
 						try {
 							dummy = Integer.parseInt(tempJobDur);
 							AcceptedjobTime.add(dummy);
@@ -155,6 +163,24 @@ public class CloudControllerGui extends cloudController {
 						dummy2 = tempID;
 
 						AcceptedClientID.add(dummy2);
+						
+						sumArray =cloudController.computeResult(AcceptedjobTime);
+						CloudControllerGui.txtfieldID.setText(AcceptedClientID.toString());
+						CloudControllerGui.textField.setText(AcceptedjobTime.toString());
+						CloudControllerGui.textFieldTime.setText(sumArray.toString());
+						//last value of the accepted completion times arrayList
+						int last = sumArray.get(sumArray.size()-1);
+						
+						connection = DriverManager.getConnection(url, username, password);
+						String sql = "INSERT INTO client_data" + "(ClientID , firstName, lastName, Duration, Deadline, compTime)" + "VALUES ('"+tempID+"','"+tempFName+"','"+tempLName+"','"+tempJobDur+"','"+tempJobDead+"','"+last+"')";                                                                                       
+						Statement statement = connection.createStatement();
+						
+						
+						int row = statement.executeUpdate(sql);
+						//the return value is the indication of success or failure of the query execution
+						if (row > 0)
+							JOptionPane.showMessageDialog(null, "sql success");
+						connection.close();
 
 						tempFName =  "";
 						tempLName = "";
@@ -168,10 +194,9 @@ public class CloudControllerGui extends cloudController {
 						outputStream.writeUTF("DATA ACCEPTED");
 						JOptionPane.showMessageDialog(null, "Users data has been accepted!");
 						
-						sumArray =cloudController.computeResult(AcceptedjobTime);
-						CloudControllerGui.txtfieldID.setText(AcceptedClientID.toString());
-						CloudControllerGui.textField.setText(AcceptedjobTime.toString());
-						CloudControllerGui.textFieldTime.setText(sumArray.toString());
+						
+						
+						
 
 						output.close();
 					} catch (Exception a) {

@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.sql.*;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -31,9 +32,18 @@ public class cloudController extends ClientGui {
 	public static ArrayList<String> AcceptedClientID = new ArrayList<String>();
 	public static int dummy;
 	public static String dummy2;
+	public static int sum;
+	
+	
+	//MySql stuff
+	static Connection connection = null;
+	static String url = "jdbc:mysql://localhost:3306/vhc?useTimezone=true&serverTimezone=UTC";
+	static String username = "root";
+	static String password = "Nerdplayer12!";
+	
 
 	public static ArrayList<Integer> computeResult(ArrayList<Integer> input) {
-		int sum = 0;
+		 sum = 0;
 		ArrayList<Integer> resultArray = new ArrayList<Integer>();
 		for (int i = 0; i < input.size(); i++) {
 			sum += input.get(i);
