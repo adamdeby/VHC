@@ -177,6 +177,8 @@ public class CloudControllerGui extends cloudController {
 						Statement statement = connection.createStatement();
 						
 						
+						
+						
 						int row = statement.executeUpdate(sql);
 						//the return value is the indication of success or failure of the query execution
 						if (row > 0)
@@ -201,7 +203,7 @@ public class CloudControllerGui extends cloudController {
 
 						output.close();
 					} catch (Exception a) {
-						
+						JOptionPane.showMessageDialog(null, "There is an error!\nPerhaps the ID is already taken. Try again");
 						a.printStackTrace();
 					}
 				}
@@ -237,8 +239,7 @@ public class CloudControllerGui extends cloudController {
 					
 						OwnerGui.Ownerinput = "";
 
-						outputStream.writeUTF("DATA ACCEPTED");
-						JOptionPane.showMessageDialog(null, "Users data has been accepted!");
+						
 						
 						connection = DriverManager.getConnection(url, username, password);
 						String sql2 = "INSERT INTO owner_data" + "(OwnerID, vehicleMake, vehicleModel, vehicleYear, residencyTime)" + "VALUES ('"+OwnerGui.tempOwnerID+"','"+OwnerGui.tempMake+"','"+OwnerGui.tempModel+"','"+OwnerGui.tempYear+"','"+OwnerGui.tempResTime+"')";
@@ -256,10 +257,13 @@ public class CloudControllerGui extends cloudController {
 						OwnerGui.tempModel = "";
 						OwnerGui.tempYear = "";
 						OwnerGui.tempResTime = "";
+						
+						outputStream.writeUTF("DATA ACCEPTED");
+						JOptionPane.showMessageDialog(null, "Users data has been accepted!");
 
 						output.close();
 					} catch (Exception a) {
-						
+						JOptionPane.showMessageDialog(null, "There is an error!\nPerhaps the ID is already taken. Try again");
 						a.printStackTrace();
 					}
 				}

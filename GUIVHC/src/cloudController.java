@@ -39,7 +39,7 @@ public class cloudController extends ClientGui {
 	static Connection connection = null;
 	static String url = "jdbc:mysql://localhost:3306/vhc?useTimezone=true&serverTimezone=UTC";
 	static String username = "root";
-	static String password = "Adna04202001!";
+	static String password = "VHCproject123";
 	
 
 	public static ArrayList<Integer> computeResult(ArrayList<Integer> input) {
