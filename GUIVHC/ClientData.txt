@@ -1,0 +1,15 @@
+**************************************
+CLIENT DATA: 
+Time: 11/29/2022 18:17:10 Client:  Name: adam adam  Client ID:1 Job Duration:1 Deadline:1
+**************************************
+CLIENT DATA: 
+Time: 11/29/2022 18:18:19 Client:  Name: 11 1  Client ID:1 Job Duration:1 Deadline:1
+**************************************
+CLIENT DATA: 
+Time: 11/29/2022 18:19:54 Client:  Name: 1 1  Client ID:1 Job Duration:1 Deadline:1
+**************************************
+CLIENT DATA: 
+Time: 11/29/2022 18:20:20 Client:  Name: 2 2  Client ID:2 Job Duration:2 Deadline:2
+**************************************
+CLIENT DATA: 
+Time: 11/29/2022 18:22:00 Client:  Name: Adamin adam  Client ID:4 Job Duration:4 Deadline:5
