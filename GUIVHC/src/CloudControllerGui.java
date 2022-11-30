@@ -226,14 +226,6 @@ public class CloudControllerGui extends cloudController {
 
 					try {
 
-						PrintStream output = new PrintStream(new FileOutputStream("OwnerData.txt", true));
-						output.println("**************************************");
-						output.println("OWNER DATA: ");
-
-						output.println(OwnerGui.Ownerinput);
-
-						OwnerGui.Ownerinput = "";
-
 						connection = DriverManager.getConnection(url, username, password);
 						String sql2 = "INSERT INTO owner_data"
 								+ "(OwnerID, vehicleMake, vehicleModel, vehicleYear, residencyTime)" + "VALUES ('"
@@ -247,6 +239,17 @@ public class CloudControllerGui extends cloudController {
 						if (row > 0)
 							JOptionPane.showMessageDialog(null, "SQL success");
 						connection.close();
+						
+						
+						PrintStream output = new PrintStream(new FileOutputStream("OwnerData.txt", true));
+						output.println("**************************************");
+						output.println("OWNER DATA: ");
+
+						output.println(OwnerGui.Ownerinput);
+
+						OwnerGui.Ownerinput = "";
+
+						
 
 						OwnerGui.tempOwnerID = "";
 						OwnerGui.tempMake = "";
