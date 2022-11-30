@@ -33,17 +33,15 @@ public class cloudController extends ClientGui {
 	public static int dummy;
 	public static String dummy2;
 	public static int sum;
-	
-	
-	//MySql stuff
+
+	// MySql stuff
 	static Connection connection = null;
 	static String url = "jdbc:mysql://localhost:3306/vhc?useTimezone=true&serverTimezone=UTC";
 	static String username = "root";
 	static String password = "VHCproject123";
-	
 
 	public static ArrayList<Integer> computeResult(ArrayList<Integer> input) {
-		 sum = 0;
+		sum = 0;
 		ArrayList<Integer> resultArray = new ArrayList<Integer>();
 		for (int i = 0; i < input.size(); i++) {
 			sum += input.get(i);
@@ -64,13 +62,12 @@ public class cloudController extends ClientGui {
 		try {
 
 			System.out.println("----------$$$ This is server side $$$--------");
-			System.out.println("wating for client to connect...");
+			System.out.println("Wating for client to connect...");
 			// creating the server
 			serverSocket = new ServerSocket(3322);
 			// sever accepts connection request from client
 			socket = serverSocket.accept();
-			System.out.println("client is connected!");
-			// System.out.println("go to client side and send me a message");
+			System.out.println("Client is connected!");
 
 			inputStream = new DataInputStream(socket.getInputStream());
 			outputStream = new DataOutputStream(socket.getOutputStream());
@@ -84,7 +81,6 @@ public class cloudController extends ClientGui {
 
 			e.printStackTrace();
 		}
-		
-		
+
 	}
 }

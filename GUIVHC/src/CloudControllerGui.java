@@ -45,7 +45,6 @@ public class CloudControllerGui extends cloudController {
 	public JTable table;
 	public static JTextField textField;
 	ArrayList<Integer> sumArray = new ArrayList<Integer>();
-	
 
 	/**
 	 * Launch the application.//
@@ -137,7 +136,7 @@ public class CloudControllerGui extends cloudController {
 
 		acceptClient.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (e.getActionCommand() == acceptClient.getActionCommand() && tempFName!="") {
+				if (e.getActionCommand() == acceptClient.getActionCommand() && tempFName != "") {
 
 					try {
 
@@ -146,13 +145,7 @@ public class CloudControllerGui extends cloudController {
 						output.println("CLIENT DATA: ");
 
 						output.println(Clientinput);
-						
-						
-						
-						
-						
-						
-						
+
 						try {
 							dummy = Integer.parseInt(tempJobDur);
 							AcceptedjobTime.add(dummy);
@@ -163,59 +156,52 @@ public class CloudControllerGui extends cloudController {
 						dummy2 = tempID;
 
 						AcceptedClientID.add(dummy2);
-						
-						sumArray =cloudController.computeResult(AcceptedjobTime);
+
+						sumArray = cloudController.computeResult(AcceptedjobTime);
 						CloudControllerGui.txtfieldID.setText(AcceptedClientID.toString());
 						CloudControllerGui.textField.setText(AcceptedjobTime.toString());
 						CloudControllerGui.textFieldTime.setText(sumArray.toString());
-						//last value of the accepted completion times arrayList
-						int last = sumArray.get(sumArray.size()-1);
-						
+						// last value of the accepted completion times arrayList
+						int last = sumArray.get(sumArray.size() - 1);
+
 						connection = DriverManager.getConnection(url, username, password);
-						String sql = "INSERT INTO client_data" + "(ClientID , firstName, lastName, Duration, Deadline, compTime)" + "VALUES ('"+tempID+"','"+tempFName+"','"+tempLName+"','"+tempJobDur+"','"+tempJobDead+"','"+last+"')";  
-						//String sql2 = "INSERT INTO owner_data" + "(OwnerID, vehicleMake, vehicleModel, vehicleYear, ResidencyTime)" + "VALUES ('"+tempID+"','"+tempFName+"','"+tempLName+"','"+tempJobDur+"','"+tempJobDead+"','"+last+"')";
+						String sql = "INSERT INTO client_data"
+								+ "(ClientID , firstName, lastName, Duration, Deadline, compTime)" + "VALUES ('"
+								+ tempID + "','" + tempFName + "','" + tempLName + "','" + tempJobDur + "','"
+								+ tempJobDead + "','" + last + "')";
 						Statement statement = connection.createStatement();
-						
-						
-						
-						
+
 						int row = statement.executeUpdate(sql);
-						//the return value is the indication of success or failure of the query execution
+						// the return value is the indication of success or failure of the query
+						// execution
 						if (row > 0)
-							JOptionPane.showMessageDialog(null, "sql success");
+							JOptionPane.showMessageDialog(null, "SQL success");
 						connection.close();
 
-						tempFName =  "";
+						tempFName = "";
 						tempLName = "";
 						tempID = "";
 						tempJobDur = "";
 						tempJobDead = "";
 
-					
 						Clientinput = "";
 
 						outputStream.writeUTF("DATA ACCEPTED");
 						JOptionPane.showMessageDialog(null, "Users data has been accepted!");
-						
-						
-						
-						
 
 						output.close();
 					} catch (Exception a) {
-						JOptionPane.showMessageDialog(null, "There is an error!\nPerhaps the ID is already taken. Try again");
+						JOptionPane.showMessageDialog(null,
+								"There is an error!\nPerhaps the ID is already taken. Try again");
 						a.printStackTrace();
 					}
-				}
-				else {
+				} else {
 					JOptionPane.showMessageDialog(null, "No Information to Accept!");
 				}
 
 			}
 		});
-		
-		
-		
+
 		acceptClient.setBounds(637, 124, 201, 39);
 		RTRframe.getContentPane().add(acceptClient);
 
@@ -224,7 +210,7 @@ public class CloudControllerGui extends cloudController {
 		acceptOwner.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		acceptOwner.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (e.getActionCommand() == acceptOwner.getActionCommand() && OwnerGui.tempOwnerID!="") {
+				if (e.getActionCommand() == acceptOwner.getActionCommand() && OwnerGui.tempOwnerID != "") {
 
 					try {
 
@@ -234,40 +220,38 @@ public class CloudControllerGui extends cloudController {
 
 						output.println(OwnerGui.Ownerinput);
 
-
-
-					
 						OwnerGui.Ownerinput = "";
 
-						
-						
 						connection = DriverManager.getConnection(url, username, password);
-						String sql2 = "INSERT INTO owner_data" + "(OwnerID, vehicleMake, vehicleModel, vehicleYear, residencyTime)" + "VALUES ('"+OwnerGui.tempOwnerID+"','"+OwnerGui.tempMake+"','"+OwnerGui.tempModel+"','"+OwnerGui.tempYear+"','"+OwnerGui.tempResTime+"')";
+						String sql2 = "INSERT INTO owner_data"
+								+ "(OwnerID, vehicleMake, vehicleModel, vehicleYear, residencyTime)" + "VALUES ('"
+								+ OwnerGui.tempOwnerID + "','" + OwnerGui.tempMake + "','" + OwnerGui.tempModel + "','"
+								+ OwnerGui.tempYear + "','" + OwnerGui.tempResTime + "')";
 						Statement statement = connection.createStatement();
-						
-						
+
 						int row = statement.executeUpdate(sql2);
-						//the return value is the indication of success or failure of the query execution
+						// the return value is the indication of success or failure of the query
+						// execution
 						if (row > 0)
-							JOptionPane.showMessageDialog(null, "sql success");
+							JOptionPane.showMessageDialog(null, "SQL success");
 						connection.close();
-						
+
 						OwnerGui.tempOwnerID = "";
 						OwnerGui.tempMake = "";
 						OwnerGui.tempModel = "";
 						OwnerGui.tempYear = "";
 						OwnerGui.tempResTime = "";
-						
+
 						outputStream.writeUTF("DATA ACCEPTED");
-						JOptionPane.showMessageDialog(null, "Users data has been accepted!");
+						JOptionPane.showMessageDialog(null, "The users data has been accepted!");
 
 						output.close();
 					} catch (Exception a) {
-						JOptionPane.showMessageDialog(null, "There is an error!\nPerhaps the ID is already taken. Try again");
+						JOptionPane.showMessageDialog(null,
+								"There is an error!\nPerhaps the ID is already taken. Try again");
 						a.printStackTrace();
 					}
-				}
-				else {
+				} else {
 					JOptionPane.showMessageDialog(null, "No Information to Accept!");
 				}
 			}
@@ -275,8 +259,6 @@ public class CloudControllerGui extends cloudController {
 		acceptOwner.setBounds(637, 206, 201, 39);
 		RTRframe.getContentPane().add(acceptOwner);
 
-		
-		
 		// reject
 		JButton reject = new JButton("Reject");
 		reject.setFont(new Font("Tahoma", Font.PLAIN, 11));
@@ -284,22 +266,20 @@ public class CloudControllerGui extends cloudController {
 			public void actionPerformed(ActionEvent e) {
 				if (e.getActionCommand() == reject.getActionCommand()) {
 					try {
-						tempFName =  "";
+						tempFName = "";
 						tempLName = "";
 						tempID = "";
 						tempJobDur = "";
 						tempJobDead = "";
-						
+
 						OwnerGui.tempOwnerID = "";
 						OwnerGui.tempMake = "";
 						OwnerGui.tempModel = "";
 						OwnerGui.tempYear = "";
 						OwnerGui.tempResTime = "";
-						
-						
 
 						outputStream.writeUTF("DATA REJECTED");
-						JOptionPane.showMessageDialog(null, "Users data has been rejected!");
+						JOptionPane.showMessageDialog(null, "The users data has been rejected!");
 
 					} catch (Exception ex) {
 						JOptionPane.showMessageDialog(null, ex);
@@ -308,14 +288,7 @@ public class CloudControllerGui extends cloudController {
 
 					}
 				}
-				
-			
-				
-				
-				
-				
-				
-		
+
 			}
 		});
 		reject.setBounds(637, 297, 201, 39);
@@ -334,5 +307,4 @@ public class CloudControllerGui extends cloudController {
 		}
 	}
 
-	
 }

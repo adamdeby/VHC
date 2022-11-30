@@ -29,10 +29,10 @@ import java.util.Map;
 import java.util.PriorityQueue;
 
 public class ClientGui {
-public static String Clientinput = "";
-	public  JFrame ClientGui;
+	public static String Clientinput = "";
+	public JFrame ClientGui;
 	public final Action action = new SwingAction();
-	public static  JTextField clientIDBox;
+	public static JTextField clientIDBox;
 	public static JTextField jobDurBox;
 	public static JTextField dealineBox;
 	public final Action action_1 = new SwingAction_1(); // submit button needs to be copied
@@ -44,13 +44,13 @@ public static String Clientinput = "";
 	String y;
 	String yy;
 	public static ArrayList<String> stringID = new ArrayList<String>();
-	
-	 public static String tempFName= "";
-	 public static String tempLName;
-	 public static String tempID;
-	 public static String tempJobDur;
-	 public static String tempJobDead;
-	 
+
+	public static String tempFName = "";
+	public static String tempLName;
+	public static String tempID;
+	public static String tempJobDur;
+	public static String tempJobDead;
+
 	/**
 	 * Launch the application.
 	 */
@@ -71,7 +71,7 @@ public static String Clientinput = "";
 	 * Create the application.
 	 */
 	public ClientGui() {
-		
+
 		initialize();
 	}
 
@@ -90,12 +90,12 @@ public static String Clientinput = "";
 		BackToMain.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				MainMenu mf = new MainMenu();
-				
+
 				mf.Mainframe.setVisible(true);
 				ClientGui.setVisible(false);
 			}
 		});
-		//
+
 		BackToMain.setBounds(252, 375, 150, 53);
 		ClientGui.getContentPane().add(BackToMain);
 
@@ -183,7 +183,6 @@ public static String Clientinput = "";
 		}
 
 		public void actionPerformed(ActionEvent e) {
-			
 
 			if (clientIDBox.getText().trim().isEmpty() || jobDurBox.getText().trim().isEmpty()
 					|| dealineBox.getText().trim().isEmpty() || textFieldLName.getText().trim().isEmpty()
@@ -192,31 +191,24 @@ public static String Clientinput = "";
 				JOptionPane.showMessageDialog(null, "Error. Please enter all the info");
 			} else {
 				try {
-					
-					tempFName =  textFieldFName.getText();
+					tempFName = textFieldFName.getText();
 					tempLName = textFieldLName.getText();
 					tempID = clientIDBox.getText();
 					tempJobDur = jobDurBox.getText();
 					tempJobDead = dealineBox.getText();
-					
-				
-					
-					//PrintStream output = new PrintStream(new FileOutputStream("ClientInfoTest.txt", true));
-					
-					
-					String timeStamp = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss ").format(new java.util.Date());
-					Clientinput = "Time: " + timeStamp + "Client:  Name: "+textFieldFName.getText() + " "+textFieldLName.getText() +"  Client ID:" + clientIDBox.getText() + " Job Duration:"
-							+ jobDurBox.getText() + " Deadline:" + dealineBox.getText() ;
 
-					 
-					 clientIDBox.setText("");
-						jobDurBox.setText("");
-						dealineBox.setText("");
-						textFieldFName.setText("");
-						textFieldLName.setText("");
-						
+					String timeStamp = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss ").format(new java.util.Date());
+					Clientinput = "Time: " + timeStamp + "Client:  Name: " + textFieldFName.getText() + " "
+							+ textFieldLName.getText() + "  Client ID:" + clientIDBox.getText() + " Job Duration:"
+							+ jobDurBox.getText() + " Deadline:" + dealineBox.getText();
+
+					clientIDBox.setText("");
+					jobDurBox.setText("");
+					dealineBox.setText("");
+					textFieldFName.setText("");
+					textFieldLName.setText("");
+
 					JOptionPane.showMessageDialog(null, "Information sent to server. Waiting for approval.");
-					
 
 				} catch (Exception a) {
 					JOptionPane.showMessageDialog(null, "Error :(");
@@ -224,29 +216,30 @@ public static String Clientinput = "";
 			}
 		}
 	}
+
 	public ArrayList<Integer> arrayMethod() {
-		
+
 		try {
 			x = Integer.parseInt(jobDurBox.getText());
-			
+
 		} catch (NumberFormatException v) {
 			x = 0; // error handling
 		}
 		jobTime.add(x);
-		
+
 		return jobTime;
 	}
+
 	public ArrayList<String> arrayMethodID() {
-		
+
 		try {
-			y= clientIDBox.getText();
+			y = clientIDBox.getText();
 		} catch (NumberFormatException w) {
 			y = ""; // error handling
 		}
 		stringID.add(y);
-		
+
 		return stringID;
-	}	
-		
-	
+	}
+
 }

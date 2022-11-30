@@ -13,3 +13,12 @@ Time: 11/29/2022 18:20:20 Client:  Name: 2 2  Client ID:2 Job Duration:2 Deadlin
 **************************************
 CLIENT DATA: 
 Time: 11/29/2022 18:22:00 Client:  Name: Adamin adam  Client ID:4 Job Duration:4 Deadline:5
+**************************************
+CLIENT DATA: 
+Time: 11/29/2022 21:25:59 Client:  Name: 123 13  Client ID:123 Job Duration:123 Deadline:123
+**************************************
+CLIENT DATA: 
+Time: 11/29/2022 21:27:22 Client:  Name: 12367 12367  Client ID:12367 Job Duration:12367 Deadline:12637
+**************************************
+CLIENT DATA: 
+Time: 11/29/2022 21:30:31 Client:  Name: 1263512 12536125  Client ID:1231 Job Duration:1231 Deadline:12321

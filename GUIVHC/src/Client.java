@@ -4,9 +4,8 @@ public class Client {
 	private String firstName;
 	private String lastName;
 	private String iD;
-	
-	public Client(String firstName, String lastName, String iD) 
-	{
+
+	public Client(String firstName, String lastName, String iD) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.iD = iD;
@@ -35,15 +34,13 @@ public class Client {
 	public void setiD(String iD) {
 		this.iD = iD;
 	}
-	
 
 	void createJob() {
-		//
+
 	}
-	
 
 	void submitJob() {
-		//
+
 	}
-	
+
 }

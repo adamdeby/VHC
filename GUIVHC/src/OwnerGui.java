@@ -36,7 +36,7 @@ public class OwnerGui {
 	public final Action action = new SwingAction();
 	public final Action action_1 = new SwingAction_1();
 
-	public static String tempOwnerID= "";
+	public static String tempOwnerID = "";
 	public static String tempMake;
 	public static String tempModel;
 	public static String tempYear;
@@ -150,11 +150,6 @@ public class OwnerGui {
 		BackToMainButton.setAction(action);
 		BackToMainButton.setBounds(270, 406, 159, 60);
 		OwnerGui.getContentPane().add(BackToMainButton);
-	}
-
-	public void setVisible(boolean b) {
-		// TODO Auto-generated method stub
-
 	}
 
 	private class SwingAction extends AbstractAction {

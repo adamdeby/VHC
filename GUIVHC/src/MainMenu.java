@@ -20,7 +20,7 @@ import java.awt.SystemColor;
 import javax.swing.JPanel;
 import java.awt.event.ActionListener;
 
-public class MainMenu extends CloudControllerGui{
+public class MainMenu extends CloudControllerGui {
 
 	JFrame Mainframe;
 	private final Action action = new SwingAction();
@@ -80,7 +80,6 @@ public class MainMenu extends CloudControllerGui{
 	public MainMenu() {
 		initialize();
 		clock();
-//test test
 	}
 
 	/**
@@ -126,7 +125,7 @@ public class MainMenu extends CloudControllerGui{
 		centerLbl.setBounds(589, 32, 241, 80);
 		Mainframe.getContentPane().add(centerLbl);
 
-		JButton btnRealTimeReport = new JButton("Real Time Report"); //controller
+		JButton btnRealTimeReport = new JButton("Real Time Report"); // controller
 		btnRealTimeReport.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				ControllerLogin sss = new ControllerLogin();
@@ -169,18 +168,17 @@ public class MainMenu extends CloudControllerGui{
 		Clock.setHorizontalAlignment(SwingConstants.CENTER);
 		Clock.setBounds(72, 608, 350, 32);
 		panel.add(Clock);
-		
+
 		JLabel lblNewLabel_1 = new JLabel("Vehicular Cloud");
 		lblNewLabel_1.setFont(new Font("Yu Gothic", Font.BOLD, 25));
 		lblNewLabel_1.setBounds(136, 272, 199, 55);
 		panel.add(lblNewLabel_1);
-		
+
 		JLabel lblNewLabel_2 = new JLabel("Real Time System");
 		lblNewLabel_2.setFont(new Font("Yu Gothic", Font.BOLD, 25));
 		lblNewLabel_2.setBounds(123, 319, 232, 55);
 		panel.add(lblNewLabel_2);
-		
-		
+
 	}
 
 	private class SwingAction extends AbstractAction {
@@ -204,22 +202,23 @@ public class MainMenu extends CloudControllerGui{
 			putValue(SHORT_DESCRIPTION, "Some short description");
 		}
 
-		public void actionPerformed(ActionEvent e) { 
+		public void actionPerformed(ActionEvent e) {
 			ClientGui openClientGui = new ClientGui();
 			openClientGui.ClientGui.setVisible(true);
 			OwnerGui openOwnerGui = new OwnerGui();
 			openOwnerGui.OwnerGui.setVisible(false);
-			
-			Mainframe.dispose();		
-			
+
+			Mainframe.dispose();
 
 		}
 	}
+
 	private class SwingAction_2 extends AbstractAction {
 		public SwingAction_2() {
 			putValue(NAME, "Controller");
 			putValue(SHORT_DESCRIPTION, "Real time support");
 		}
+
 		public void actionPerformed(ActionEvent e) {
 		}
 	}
