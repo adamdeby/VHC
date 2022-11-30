@@ -171,7 +171,7 @@ public class MainMenu extends CloudControllerGui {
 
 		JLabel lblNewLabel_1 = new JLabel("Vehicular Cloud");
 		lblNewLabel_1.setFont(new Font("Yu Gothic", Font.BOLD, 25));
-		lblNewLabel_1.setBounds(136, 272, 199, 55);
+		lblNewLabel_1.setBounds(136, 272, 219, 55);
 		panel.add(lblNewLabel_1);
 
 		JLabel lblNewLabel_2 = new JLabel("Real Time System");

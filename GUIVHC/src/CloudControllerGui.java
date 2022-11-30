@@ -139,6 +139,22 @@ public class CloudControllerGui extends cloudController {
 				if (e.getActionCommand() == acceptClient.getActionCommand() && tempFName != "") {
 
 					try {
+						
+						
+
+						connection = DriverManager.getConnection(url, username, password);
+						String sql = "INSERT INTO client_data"
+								+ "(ClientID , firstName, lastName, Duration, Deadline)" + "VALUES ('"
+								+ tempID + "','" + tempFName + "','" + tempLName + "','" + tempJobDur + "','"
+								+ tempJobDead + "')";
+						Statement statement = connection.createStatement();
+
+						int row = statement.executeUpdate(sql);
+						// the return value is the indication of success or failure of the query
+						// execution
+						if (row > 0)
+							JOptionPane.showMessageDialog(null, "SQL success");
+						
 
 						PrintStream output = new PrintStream(new FileOutputStream("ClientData.txt", true));
 						output.println("**************************************");
@@ -158,25 +174,21 @@ public class CloudControllerGui extends cloudController {
 						AcceptedClientID.add(dummy2);
 
 						sumArray = cloudController.computeResult(AcceptedjobTime);
+						
+						int last = sumArray.get(sumArray.size() - 1);
+						
+						
+						String sqlTime = "INSERT INTO client_data"
+								+ "(compTime)" + "VALUES (''" + last + "')";
+						
+						connection.close();
+						
+						
+						
 						CloudControllerGui.txtfieldID.setText(AcceptedClientID.toString());
 						CloudControllerGui.textField.setText(AcceptedjobTime.toString());
 						CloudControllerGui.textFieldTime.setText(sumArray.toString());
 						// last value of the accepted completion times arrayList
-						int last = sumArray.get(sumArray.size() - 1);
-
-						connection = DriverManager.getConnection(url, username, password);
-						String sql = "INSERT INTO client_data"
-								+ "(ClientID , firstName, lastName, Duration, Deadline, compTime)" + "VALUES ('"
-								+ tempID + "','" + tempFName + "','" + tempLName + "','" + tempJobDur + "','"
-								+ tempJobDead + "','" + last + "')";
-						Statement statement = connection.createStatement();
-
-						int row = statement.executeUpdate(sql);
-						// the return value is the indication of success or failure of the query
-						// execution
-						if (row > 0)
-							JOptionPane.showMessageDialog(null, "SQL success");
-						connection.close();
 
 						tempFName = "";
 						tempLName = "";
