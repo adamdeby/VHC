@@ -1,0 +1,12 @@
+**************************************
+OWNER DATA: 
+Time: 12/14/2022 11:54:23 Owner: ID:234 Make:234 Model:234 Year:234 Residency Time:234
+**************************************
+OWNER DATA: 
+Time: 12/14/2022 12:01:26 Owner: ID:12 Make:234 Model:234 Year:234 Residency Time:234
+**************************************
+OWNER DATA: 
+Time: 12/14/2022 12:03:43 Owner: ID:12345 Make:bmw Model:2012 Year:1203 Residency Time:21
+**************************************
+OWNER DATA: 
+Time: 12/14/2022 12:03:59 Owner: ID:65 Make:546 Model:56 Year:56 Residency Time:56

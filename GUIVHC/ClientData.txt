@@ -1,0 +1,18 @@
+**************************************
+CLIENT DATA: 
+Time: 12/14/2022 11:57:08 Client:  Name: 2222 2222  Client ID:2222 Job Duration:2222 Deadline:2222
+**************************************
+CLIENT DATA: 
+Time: 12/14/2022 12:01:44 Client:  Name: 324 345  Client ID:345 Job Duration:345 Deadline:345
+**************************************
+CLIENT DATA: 
+Time: 12/14/2022 12:04:13 Client:  Name: 1 1  Client ID:1 Job Duration:1 Deadline:1
+**************************************
+CLIENT DATA: 
+Time: 12/14/2022 12:04:28 Client:  Name: 2 2  Client ID:2 Job Duration:2 Deadline:2
+**************************************
+CLIENT DATA: 
+Time: 12/14/2022 12:05:02 Client:  Name: 32 32  Client ID:32 Job Duration:32 Deadline:32
+**************************************
+CLIENT DATA: 
+Time: 12/14/2022 12:05:36 Client:  Name: 999 999  Client ID:99 Job Duration:99 Deadline:99

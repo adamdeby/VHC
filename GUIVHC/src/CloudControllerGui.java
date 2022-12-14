@@ -115,23 +115,23 @@ public class CloudControllerGui extends cloudController {
 		textField.setBounds(75, 220, 351, 46);
 		RTRframe.getContentPane().add(textField);
 
-		UserLabel = new JLabel("Client IDs:");
+		UserLabel = new JLabel("Current Client IDs:");
 		UserLabel.setFont(new Font("Yu Gothic", Font.BOLD, 17));
-		UserLabel.setBounds(75, 90, 152, 30);
+		UserLabel.setBounds(75, 90, 191, 30);
 		RTRframe.getContentPane().add(UserLabel);
 
-		JobDurationLabel = new JLabel("Job Duration (Completed Time in hours):");
+		JobDurationLabel = new JLabel("Job Duration ( Current Completed Time in hours):");
 		JobDurationLabel.setFont(new Font("Yu Gothic", Font.BOLD, 17));
-		JobDurationLabel.setBounds(75, 304, 351, 30);
+		JobDurationLabel.setBounds(75, 304, 420, 30);
 		RTRframe.getContentPane().add(JobDurationLabel);
 
-		JLabel originalTextBox = new JLabel("Original Time:");
+		JLabel originalTextBox = new JLabel("Current Original Time:");
 		originalTextBox.setFont(new Font("Dialog", Font.BOLD, 17));
-		originalTextBox.setBounds(75, 190, 152, 30);
+		originalTextBox.setBounds(75, 190, 175, 30);
 		RTRframe.getContentPane().add(originalTextBox);
 
 		// CLient
-		JButton acceptClient = new JButton("Accept Client");
+		JButton acceptClient = new JButton("Accept Pending Client");
 		acceptClient.setFont(new Font("Tahoma", Font.PLAIN, 11));
 
 		acceptClient.addActionListener(new ActionListener() {
@@ -218,7 +218,7 @@ public class CloudControllerGui extends cloudController {
 		RTRframe.getContentPane().add(acceptClient);
 
 		// Owner
-		JButton acceptOwner = new JButton("Accept Owner");
+		JButton acceptOwner = new JButton("Accept Pending Owner");
 		acceptOwner.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		acceptOwner.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
